@@ -25,9 +25,9 @@ abstract class MarshallerAbstract implements MarshallerInterface, ServiceLocator
      */
     public function getServiceLocator()
     {
-//        if(empty($this->serviceLocator)){
-//            $this->serviceLocator = new ServiceLocator();
-//        }
+        if(empty($this->serviceLocator)){
+            $this->serviceLocator = new ServiceLocator();
+        }
         return $this->serviceLocator;
     }
 

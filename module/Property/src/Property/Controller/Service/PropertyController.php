@@ -10,9 +10,14 @@
 namespace Property\Controller\Service;
 
 use Application\Controller\AbstractServiceController;
+use InvalidArgumentException;
 use Property\Entity\Property;
 use Property\Marshal\ArrayToProperty;
+use Property\Marshal\PropertiesToArray;
+use Property\Marshal\PropertyToArray;
 use Property\Service;
+use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use Zend\View\Model\JsonModel;
 
 class PropertyController extends AbstractServiceController
 {
@@ -34,6 +39,22 @@ class PropertyController extends AbstractServiceController
     }
 
     /**
+     * @return PropertyToArray
+     */
+    protected function getPropertyToArrayMarshaller()
+    {
+        return new PropertyToArray();
+    }
+
+    /**
+     * @return PropertiesToArray
+     */
+    protected function getPropertiesToArrayMarshaller()
+    {
+        return new PropertiesToArray();
+    }
+
+    /**
      * @return \Property\Service
      */
     protected function getPropertyService()
@@ -43,7 +64,7 @@ class PropertyController extends AbstractServiceController
 
     public function indexAction()
     {
-        echo 'nothing here';
+        throw new ServiceNotFoundException('There is no default property service.');
     }
 
     public function createAction()
@@ -56,43 +77,47 @@ class PropertyController extends AbstractServiceController
         $service = $this->getPropertyService();
         $property = $service->create($property);
 
-        die(var_dump($property->getId())); // yes, I'm lazy
+        $marshaller = $this->getPropertyToArrayMarshaller();
+
+        return new JsonModel($marshaller->marshal($property));
     }
 
     public function deleteAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
         if(empty($id)){
-            // throw an exception
-            die();
+            throw new InvalidArgumentException('Missing required parameter [id].');
         }
 
         $service = $this->getPropertyService();
         $property = $service->delete($id);
 
-        die( 'OK - deleted: '.$id ); // yes, I'm lazy
+        return new JsonModel(array(
+            'id' => $id,
+            'success' => true,
+        ));
     }
 
     public function getAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
         if(empty($id)){
-            // throw an exception
-            die();
+            throw new InvalidArgumentException('Missing required parameter [id].');
         }
 
         $service = $this->getPropertyService();
         $property = $service->load($id);
 
-        var_dump($property);
-        die();
+        $marshaller = $this->getPropertyToArrayMarshaller();
+
+        return new JsonModel($marshaller->marshal($property));
     }
 
     public function getlistAction()
     {
         $service = $this->getPropertyService();
         $properties = $service->getList();
-        var_dump($properties);
-        die();
+        $marshaller = $this->getPropertiesToArrayMarshaller();
+        return new JsonModel($marshaller->marshal($properties));
     }
 }
