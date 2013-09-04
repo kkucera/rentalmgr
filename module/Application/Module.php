@@ -80,6 +80,40 @@ class Module
     }
 
     /**
+     * Look for a valid format from the requested uri
+     * @param $requestUri
+     * @return string
+     */
+    protected function getFormatFromUri($requestUri)
+    {
+        $validFormats = array('.json', '.xml');
+        foreach($validFormats as $format){
+            if(strpos($requestUri, $format) !== false){
+                return trim($format, '.');
+            }
+        }
+        return '';
+    }
+
+    /**
+     * Get the requested format.  Try route match, if not available inspect uri.
+     * @param MvcEvent $event
+     * @return mixed|string
+     */
+    protected function getFormat(MvcEvent $event)
+    {
+        $routeMatch = $event->getRouteMatch();
+        if($routeMatch){
+            $format = $routeMatch->getParam('format');
+        }else{
+            /** @var \Zend\Http\PhpEnvironment\Request $request */
+            $request = $event->getRequest();
+            $format = $this->getFormatFromUri($request->getRequestUri());
+        }
+        return $format;
+    }
+
+    /**
      * @param MvcEvent $event
      */
     public function onDispatchError(MvcEvent $event)
@@ -91,7 +125,9 @@ class Module
 
         $requestUri = $request->getRequestUri();
 
-        if($this->isService($requestUri)){
+        $format = $this->getFormat($event);
+
+        if($format === 'json'){
             $result = $event->getResult();
             $errorResponse = $this->getErrorResponse();
             $errorResponse
