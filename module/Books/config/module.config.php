@@ -34,7 +34,7 @@ return array(
             'books-service' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/service/books/expense[/:action][/:id]',
+                    'route'    => '/service/books/expense/:action[.:format][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',

@@ -99,5 +99,12 @@ abstract class Doctrine implements ServiceLocatorAwareInterface
         $this->serviceLocator = $serviceLocator;
     }
 
+    /**
+     * Flush the entity manager and write data to the database
+     */
+    public function flush()
+    {
+        $this->getEntityManager()->flush();
+    }
 
 }

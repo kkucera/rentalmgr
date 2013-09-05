@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f403e37b-a49a-41f5-8481-07346e1fa0c2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/Module.php" afterPath="$PROJECT_DIR$/module/Application/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Books/config/module.config.php" afterPath="$PROJECT_DIR$/module/Books/config/module.config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Property/config/module.config.php" afterPath="$PROJECT_DIR$/module/Property/config/module.config.php" />
     </list>
     <ignored path="rentalmgr.iws" />
@@ -18,8 +21,8 @@
     <file path="/Property.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377988524736" ignored="false" />
     <file path="/Service.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378089286487" ignored="false" />
     <file path="/a.dummy" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147028655" ignored="false" />
-    <file path="/Doctrine.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378144330128" ignored="false" />
-    <file path="/DoctrineFactory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378072021585" ignored="false" />
+    <file path="/Doctrine.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378343958959" ignored="false" />
+    <file path="/DoctrineFactory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378353296157" ignored="false" />
     <file path="/ServiceLocator.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378076541133" ignored="false" />
     <file path="/ServiceLocatorNotSet.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378075449007" ignored="false" />
     <file path="/ArrayToProperty.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378090635674" ignored="false" />
@@ -31,11 +34,12 @@
     <file path="/AbstractController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378145975112" ignored="false" />
     <file path="/ExpenseControl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147301239" ignored="false" />
     <file path="/AbstractServiceController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147265740" ignored="false" />
-    <file path="/DoctrineCrud.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147666101" ignored="false" />
+    <file path="/DoctrineCrud.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378343935135" ignored="false" />
     <file path="/PropertyToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378164837807" ignored="false" />
     <file path="/PropertiesToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378165968152" ignored="false" />
     <file path="/ErrorResponse.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378271108642" ignored="false" />
     <file path="/DtoToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378269104652" ignored="false" />
+    <file path="/DoctrineEntityManager.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378353101916" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +62,7 @@
       <file leaf-file-name="PropertyController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Property/src/Property/Controller/Service/PropertyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="15" selection-start="1679" selection-end="1679" vertical-scroll-proportion="-9.375">
+            <state line="77" column="15" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.33333334">
               <folding>
                 <element signature="e#182#235#0" expanded="true" />
               </folding>
@@ -66,10 +70,68 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Module.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Doctrine.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Books/src/Books/Expense/Dao/Doctrine.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoctrineCrud.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="55" selection-start="418" selection-end="418" vertical-scroll-proportion="15.333333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoctrineFactory.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="38" selection-start="603" selection-end="603" vertical-scroll-proportion="0.24702774">
+              <folding>
+                <element signature="e#166#219#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="services.config.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-orm-module/config/services.config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityManager.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="6" selection-start="1687" selection-end="1687" vertical-scroll-proportion="-10.833333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Doctrine.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="102" column="62" selection-start="2392" selection-end="2392" vertical-scroll-proportion="-23.416666">
+              <folding>
+                <element signature="e#170#202#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Module.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="11" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.5504087">
+            <state line="116" column="29" selection-start="2931" selection-end="2931" vertical-scroll-proportion="-8.708333">
               <folding>
                 <element signature="e#354#388#0" expanded="true" />
               </folding>
@@ -81,73 +143,6 @@
         <entry file="file://$PROJECT_DIR$/module/Property/config/service.config.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="module.config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Property/config/module.config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="40" selection-start="1495" selection-end="1495" vertical-scroll-proportion="-15.625">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErrorResponse.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dto/ErrorResponse.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="11" selection-start="2212" selection-end="2212" vertical-scroll-proportion="-57.791668">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DtoToArray.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Marshal/DtoToArray.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="59" selection-start="331" selection-end="331" vertical-scroll-proportion="-6.875">
-              <folding>
-                <element signature="e#174#194#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MarshallerAbstract.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Marshal/MarshallerAbstract.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="18" selection-start="833" selection-end="833" vertical-scroll-proportion="-18.75">
-              <folding>
-                <element signature="e#174#205#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Stdlib/Message.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="20" selection-start="1762" selection-end="1762" vertical-scroll-proportion="1.5833334">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Response.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/PhpEnvironment/Response.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="11.875">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Request.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/PhpEnvironment/Request.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="618" selection-end="618" vertical-scroll-proportion="55.625">
               <folding />
             </state>
           </provider>
@@ -171,12 +166,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/Books/src/Books/Controller/Service/ExpenseControl.php" />
-        <option value="$PROJECT_DIR$/module/Books/config/module.config.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractServiceController.php" />
-        <option value="$PROJECT_DIR$/module/Books/src/Books/Controller/Service/ExpenseController.php" />
         <option value="$PROJECT_DIR$/module/Property/src/Property/Controller/PropertyController.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php" />
         <option value="$PROJECT_DIR$/module/Application/config/module.config.php" />
         <option value="$PROJECT_DIR$/module/Property/src/Property/Marshal/PropertyToArray.php" />
@@ -185,8 +175,13 @@
         <option value="$PROJECT_DIR$/module/Application/src/Application/Marshal/DtoToArray.php" />
         <option value="$PROJECT_DIR$/module/Property/src/Property/Controller/Service/PropertyController.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Application/Dto/ErrorResponse.php" />
-        <option value="$PROJECT_DIR$/module/Property/config/module.config.php" />
         <option value="$PROJECT_DIR$/module/Application/Module.php" />
+        <option value="$PROJECT_DIR$/module/Property/config/module.config.php" />
+        <option value="$PROJECT_DIR$/module/Books/config/module.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineEntityManager.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php" />
       </list>
     </option>
   </component>
@@ -253,6 +248,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine-orm-module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doctrine-orm-module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1181,62 +1242,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/application.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="15.916667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Stdlib/ResponseInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="344" selection-end="344" vertical-scroll-proportion="0.099075295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Stdlib/RequestInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="10" selection-start="344" selection-end="344" vertical-scroll-proportion="0.099075295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="184" column="72" selection-start="5770" selection-end="5772" vertical-scroll-proportion="0.33242133">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/PhpEnvironment/Response.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="11.875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Stdlib/Message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="20" selection-start="1762" selection-end="1762" vertical-scroll-proportion="1.5833334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/MvcEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="208" column="20" selection-start="4181" selection-end="4181" vertical-scroll-proportion="0.33289298">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/PhpEnvironment/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="6" selection-start="618" selection-end="618" vertical-scroll-proportion="55.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1271,6 +1276,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="29" selection-start="2931" selection-end="2931" vertical-scroll-proportion="-8.708333">
+          <folding>
+            <element signature="e#354#388#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Books/config/module.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="49" selection-start="1352" selection-end="1352" vertical-scroll-proportion="-20.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Property/config/module.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="22" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.40871936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/module/Property/config/service.config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1278,27 +1306,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Property/config/module.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="40" selection-start="1495" selection-end="1495" vertical-scroll-proportion="-15.625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Property/src/Property/Controller/Service/PropertyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="15" selection-start="1679" selection-end="1679" vertical-scroll-proportion="-9.375">
+        <state line="77" column="15" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.33333334">
           <folding>
             <element signature="e#182#235#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
+    <entry file="file://$PROJECT_DIR$/module/Books/src/Books/Expense/Dao/Doctrine.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="11" selection-start="3318" selection-end="3318" vertical-scroll-proportion="0.5504087">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="62" selection-start="2392" selection-end="2392" vertical-scroll-proportion="-23.416666">
           <folding>
-            <element signature="e#354#388#0" expanded="true" />
+            <element signature="e#170#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="55" selection-start="418" selection-end="418" vertical-scroll-proportion="15.333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/EntityManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="6" selection-start="1687" selection-end="1687" vertical-scroll-proportion="-10.833333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-orm-module/config/services.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="38" selection-start="603" selection-end="603" vertical-scroll-proportion="0.24702774">
+          <folding>
+            <element signature="e#166#219#0" expanded="true" />
           </folding>
         </state>
       </provider>

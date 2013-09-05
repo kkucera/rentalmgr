@@ -20,7 +20,6 @@ abstract class DoctrineCrud extends Doctrine
         if ($model != null)
         {
             $this->getEntityManager()->persist($model);
-            $this->getEntityManager()->flush();
         }
 
         return $model;
@@ -46,7 +45,6 @@ abstract class DoctrineCrud extends Doctrine
         if ($model != null)
         {
             $this->getEntityManager()->remove($model);
-            $this->getEntityManager()->flush();
         }
 
         return $model;
@@ -88,5 +86,6 @@ abstract class DoctrineCrud extends Doctrine
     {
         return $this->save($model);
     }
+
 
 }

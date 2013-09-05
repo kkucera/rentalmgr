@@ -34,7 +34,7 @@ return array(
             'property-service' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/service/property[/:action][/:id][.:format]',
+                    'route'    => '/service/property/:action[.:format][/:id]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
