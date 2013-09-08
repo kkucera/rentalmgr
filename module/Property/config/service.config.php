@@ -9,11 +9,5 @@
 namespace Application;
 
 return array(
-    'factories' => array(
-        'Application\DoctrineFactory' =>  function($sm) {
-            $factory = new DoctrineFactory();
-            $factory->setServiceLocator($sm);
-            return $factory;
-        },
-    ),
+
 );

@@ -8,12 +8,18 @@
  */
 namespace Application;
 
+use Application\Dao\DoctrineFactory;
+use Zend\ServiceManager\ServiceManager;
+
 return array(
     'factories' => array(
-        'Application\DoctrineFactory' =>  function($sm) {
+        'Application\Dao\DoctrineFactory' =>  function($sm) {
             $factory = new DoctrineFactory();
             $factory->setServiceLocator($sm);
             return $factory;
         },
+        'Zend\Authentication\AuthenticationService' => function(ServiceManager $serviceManager) {
+            return $serviceManager->get('doctrine.authenticationservice.orm_default');
+        }
     ),
 );

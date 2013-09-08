@@ -7,13 +7,15 @@
  * @date: 9/1/13
  */
 
-namespace Application;
+namespace Application\Dao;
 
+use Application\ServiceLocator;
+use Doctrine\ORM\EntityManager;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Doctrine\ORM\EntityManager;
 
-class DoctrineFactory implements ServiceLocatorAwareInterface{
+class DoctrineFactory implements ServiceLocatorAwareInterface
+{
 
     /**
      * @var EntityManager
@@ -25,6 +27,9 @@ class DoctrineFactory implements ServiceLocatorAwareInterface{
      */
     private $serviceLocator;
 
+    /**
+     * flush all entity changes
+     */
     public function __destruct()
     {
         self::$entityManager->flush();

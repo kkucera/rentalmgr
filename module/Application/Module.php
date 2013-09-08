@@ -15,18 +15,11 @@ use Zend\Mvc\MvcEvent;
 use Zend\View\Model\JsonModel;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\Http\PhpEnvironment\Request;
+use Logger;
+use Application\Logger\Factory as LoggerFactory;
 
 class Module
 {
-
-    /**
-     * @param $uri
-     * @return bool
-     */
-    protected function isService($uri)
-    {
-        return strpos($uri,'/service/') !== false;
-    }
 
     /**
      * @return ErrorResponse
@@ -34,6 +27,14 @@ class Module
     protected function getErrorResponse()
     {
         return new ErrorResponse();
+    }
+
+    /**
+     * @return Logger
+     */
+    protected function getLogger()
+    {
+        return LoggerFactory::get($this);
     }
 
     /**
@@ -75,8 +76,11 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
+        ServiceLocator::register($e->getApplication()->getServiceManager());
+
         $eventManager->getSharedManager()->attach('*', MvcEvent::EVENT_DISPATCH_ERROR, array($this, 'onDispatchError'), -100);
 
+        Logger::configure();
     }
 
     /**
@@ -127,19 +131,21 @@ class Module
 
         $format = $this->getFormat($event);
 
-        if($format === 'json'){
-            $result = $event->getResult();
-            $errorResponse = $this->getErrorResponse();
-            $errorResponse
-                ->setStatusCode($response->getStatusCode())
-                ->setMessage($result->message)
-                ->setException($result->exception)
-                ->setUri($requestUri);
+        $result = $event->getResult();
+        $errorResponse = $this->getErrorResponse();
+        $errorResponse
+            ->setStatusCode($response->getStatusCode())
+            ->setMessage($result->message)
+            ->setException($result->exception)
+            ->setUri($requestUri);
 
+        if($format === 'json'){
             $event->setViewModel(new JsonModel($errorResponse->getResponseArray()));
         }
 
-        // TODO: setup log4php & log if response code is not 0
+        if($response->getStatusCode() !== 0){
+            $this->getLogger()->error($errorResponse);
+        }
 
     }
 }

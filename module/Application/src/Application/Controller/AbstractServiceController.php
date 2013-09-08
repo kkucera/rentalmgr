@@ -11,21 +11,8 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Application\ServiceLocator;
-use Zend\Mvc\MvcEvent;
 
-class AbstractServiceController extends AbstractActionController{
-
-    /**
-     * Execute the request
-     *
-     * @param  MvcEvent $e
-     * @return mixed
-     * @throws \Zend\Mvc\Exception\DomainException
-     */
-    public function onDispatch(MvcEvent $e)
-    {
-        ServiceLocator::register($this->getServiceLocator());
-        return parent::onDispatch($e);
-    }
+class AbstractServiceController extends AbstractActionController
+{
 
 }

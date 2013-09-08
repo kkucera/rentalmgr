@@ -9,7 +9,7 @@
 
 namespace Application\Dao;
 
-use Application\DoctrineFactory;
+use Application\Dao\DoctrineFactory;
 use Application\ServiceLocator;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;

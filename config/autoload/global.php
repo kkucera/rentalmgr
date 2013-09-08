@@ -12,5 +12,48 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array(
+        'connection' => array(
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                    'host'     => 'localhost',
+                    'port'     => '3306',
+                    'dbname'   => 'rentalmgr',
+                )
+            )
+        ),
+        'authentication' => array(
+            'orm_default' => array(
+                'object_manager' => 'Doctrine\ORM\EntityManager',
+                'identity_class' => 'User\Entity\User',
+                'identity_property' => 'email',
+                'credential_property' => 'password',
+            ),
+        ),
+    ),
+    'logger' => array(
+        'rootLogger' => array(
+            'appenders' => array('default'),
+        ),
+        'appenders' => array(
+            'default' => array(
+                'class' => 'LoggerAppenderFile',
+                'layout' => array(
+                    'class' => 'LoggerLayoutSimple'
+                ),
+                'params' => array(
+                    'file' => __DIR__.'/../../data/log/app.log',
+                    'append' => true
+                )
+            )
+        ),
+        'renderers' => array(
+            'Exception' => array(
+                'renderedClass' => 'Application\Dto\ErrorResponse',
+                'renderingClass' => '\Application\Logger\Renderer\ErrorResponse',
+            ),
+        ),
+
+    ),
 );

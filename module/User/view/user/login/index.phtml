@@ -1,0 +1,23 @@
+<?php
+/**
+ * @category Kevin Kucera
+ * @package rentalmgr
+ * @copyright Copyright (c) 2013 Kevin Kucera
+ * @user: kevin
+ * @date: 9/7/13
+ */
+?>
+<form action='/user/login/authenticate' method="POST">
+    <?php
+    if($this->messages){
+        echo '<div class="warning-message">';
+        foreach($this->messages as $message){
+            echo '<div>'.$message.'</div>';
+        }
+        echo '</div>';
+    }
+    ?>
+    Email: <input name="username" type="text" /><br/>
+    Password: <input name="password" type="password" /><br/>
+    <input type="submit" value="Login">
+</form>

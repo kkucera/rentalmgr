@@ -9,12 +9,12 @@
 
 namespace Property\Controller;
 
-use Application\Controller\AbstractController;
+use User\Controller\AuthenticatedController;
 use Property\Entity\Property;
 use Property\Marshal\ArrayToProperty;
 use Property\Service;
 
-class PropertyController extends AbstractController
+class PropertyController extends AuthenticatedController
 {
 
     protected function getProperty()

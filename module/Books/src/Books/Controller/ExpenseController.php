@@ -10,10 +10,10 @@ namespace Books\Controller;
 
 use Books\Entity\Expense;
 use Property\Marshal\ArrayToProperty;
-use Application\Controller\AbstractController;
+use User\Controller\AuthenticatedController;
 use Books\Expense\Service;
 
-class ExpenseController extends AbstractController
+class ExpenseController extends AuthenticatedController
 {
     /**
      * @return Expense
