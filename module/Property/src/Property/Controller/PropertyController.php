@@ -9,7 +9,7 @@
 
 namespace Property\Controller;
 
-use User\Controller\AuthenticatedController;
+use Auth\Controller\AuthenticatedController;
 use Property\Entity\Property;
 use Property\Marshal\ArrayToProperty;
 use Property\Service;

@@ -7,7 +7,7 @@
  * @date: 9/7/13
  */
 
-namespace User\Auth\Exception;
+namespace Auth\Exception;
 
 use Exception;
 

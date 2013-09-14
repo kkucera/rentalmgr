@@ -10,7 +10,7 @@ namespace Books\Controller;
 
 use Books\Entity\Expense;
 use Property\Marshal\ArrayToProperty;
-use User\Controller\AuthenticatedController;
+use Auth\Controller\AuthenticatedController;
 use Books\Expense\Service;
 
 class ExpenseController extends AuthenticatedController

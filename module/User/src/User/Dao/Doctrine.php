@@ -10,6 +10,7 @@
 namespace User\Dao;
 
 use Application\Dao\DoctrineCrud as DoctrineCrud;
+use User\Entity\User as UserModel;
 
 class Doctrine extends DoctrineCrud
 {
@@ -21,6 +22,15 @@ class Doctrine extends DoctrineCrud
     public function getEntityName()
     {
         return 'User\Entity\User';
+    }
+
+    /**
+     * @param $username
+     * @return UserModel|null
+     */
+    public function getUserByEmail($username)
+    {
+        return $this->getRepository()->findOneBy(array('email'=>$username));
     }
 
 }

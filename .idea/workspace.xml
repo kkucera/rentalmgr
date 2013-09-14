@@ -2,89 +2,83 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f403e37b-a49a-41f5-8481-07346e1fa0c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/vendor/apache/log4php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Controller/AuthenticatedController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Dao/Doctrine.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Logger/Renderer/ErrorResponse.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Logger/Factory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Controller/LoginController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Auth/Exception/LoginFailed.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/Module.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Auth/RedirectCookieService.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Service.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Auth/Service.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Entity/User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Controller/UserController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Controller/Service/UserController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/autoload_classmap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/view/user/login/index.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/config/module.config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/config/service.config.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/module/Application/src/Application/DoctrineFactory.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineFactory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractServiceController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractServiceController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/Auth/Entity/Authentication.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Session/Dao/Doctrine.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/Auth/Dao/Doctrine.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Session/SaveHandler.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Session/Service.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Application/src/Application/Session/Entity/Session.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/src/User/Auth/Exception/LoginFailed.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Exception/LoginFailed.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/src/User/Auth/RedirectCookieService.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Service/RedirectCookie.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/src/User/Auth/Service.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/src/User/Controller/AuthenticatedController.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Controller/AuthenticatedController.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/src/User/Controller/LoginController.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Controller/LoginController.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/module/User/view/user/login/index.phtml" afterPath="$PROJECT_DIR$/module/User/view/auth/login/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/User/Dao/Doctrine.php" afterPath="$PROJECT_DIR$/module/User/src/User/Dao/Doctrine.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Books/src/Books/Controller/ExpenseController.php" afterPath="$PROJECT_DIR$/module/Books/src/Books/Controller/ExpenseController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/Module.php" afterPath="$PROJECT_DIR$/module/Application/Module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/Module.php" afterPath="$PROJECT_DIR$/module/User/Module.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Property/src/Property/Controller/PropertyController.php" afterPath="$PROJECT_DIR$/module/Property/src/Property/Controller/PropertyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.config.php" afterPath="$PROJECT_DIR$/config/application.config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/autoload.php" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/User/Service.php" afterPath="$PROJECT_DIR$/module/User/src/User/Service.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/autoload/global.php" afterPath="$PROJECT_DIR$/config/autoload/global.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/installed.json" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/module.config.php" afterPath="$PROJECT_DIR$/module/Application/config/module.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/config/module.config.php" afterPath="$PROJECT_DIR$/module/User/config/module.config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/service.config.php" afterPath="$PROJECT_DIR$/module/Application/config/service.config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Property/config/service.config.php" afterPath="$PROJECT_DIR$/module/Property/config/service.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/config/service.config.php" afterPath="$PROJECT_DIR$/module/User/config/service.config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rentalmgr.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377972396216" ignored="false" />
     <file path="/index.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377831595290" ignored="false" />
-    <file path="/ExpenseController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378600527729" ignored="false" />
-    <file path="/Module.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378586398593" ignored="false" />
-    <file path="/module.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378586613175" ignored="false" />
+    <file path="/ExpenseController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378682751127" ignored="false" />
+    <file path="/Module.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379127628588" ignored="false" />
+    <file path="/module.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379179324074" ignored="false" />
     <file path="/Expense.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377989596568" ignored="false" />
     <file path="/ExpenseCategory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377987596910" ignored="false" />
-    <file path="/PropertyController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378596368214" ignored="false" />
+    <file path="/PropertyController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378682739666" ignored="false" />
     <file path="/Property.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377988524736" ignored="false" />
-    <file path="/Service.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378596262709" ignored="false" />
-    <file path="/a.dummy" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604149516" ignored="false" />
-    <file path="/Doctrine.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378586196773" ignored="false" />
-    <file path="/DoctrineFactory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378524763833" ignored="false" />
+    <file path="/Service.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185189355" ignored="false" />
+    <file path="/a.dummy" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379125270778" ignored="false" />
+    <file path="/Doctrine.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379181843974" ignored="false" />
+    <file path="/DoctrineFactory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379180654096" ignored="false" />
     <file path="/ServiceLocator.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378076541133" ignored="false" />
     <file path="/ServiceLocatorNotSet.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378075449007" ignored="false" />
     <file path="/ArrayToProperty.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378090635674" ignored="false" />
     <file path="/MarshallerAbstract.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378081727582" ignored="false" />
     <file path="/MarshallerInterface.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378081701642" ignored="false" />
-    <file path="/CrudServiceAbstract.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147865670" ignored="false" />
+    <file path="/CrudServiceAbstract.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185404411" ignored="false" />
     <file path="/ArrayToExpense.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378092038790" ignored="false" />
-    <file path="/service.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604346841" ignored="false" />
+    <file path="/service.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379181685557" ignored="false" />
     <file path="/AbstractController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378145975112" ignored="false" />
     <file path="/ExpenseControl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147301239" ignored="false" />
     <file path="/AbstractServiceController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147265740" ignored="false" />
-    <file path="/DoctrineCrud.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378343935135" ignored="false" />
+    <file path="/DoctrineCrud.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185303298" ignored="false" />
     <file path="/PropertyToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378164837807" ignored="false" />
     <file path="/PropertiesToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378165968152" ignored="false" />
     <file path="/ErrorResponse.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378530494290" ignored="false" />
     <file path="/DtoToArray.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378269104652" ignored="false" />
     <file path="/DoctrineEntityManager.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378353101916" ignored="false" />
     <file path="/Factory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378528772819" ignored="false" />
-    <file path="/global.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378528662187" ignored="false" />
+    <file path="/global.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378866183071" ignored="false" />
     <file path="/User.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378586764200" ignored="false" />
-    <file path="/LoginController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604474950" ignored="false" />
-    <file path="/index.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378594962600" ignored="false" />
+    <file path="/LoginController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378690048941" ignored="false" />
+    <file path="/index.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378683209464" ignored="false" />
     <file path="/UserController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378591258135" ignored="false" />
     <file path="/LoginFailed.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378593606409" ignored="false" />
     <file path="/LogoutController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378595166334" ignored="false" />
-    <file path="/AuthenticatedController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604521376" ignored="false" />
+    <file path="/AuthenticatedController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378689977187" ignored="false" />
     <file path="/Url.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378598112273" ignored="false" />
     <file path="/TreeRouteStack.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378598288281" ignored="false" />
     <file path="/RedirectCookie.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604054827" ignored="false" />
     <file path="/.gitignore" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604810779" ignored="false" />
+    <file path="/SaveHandler.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379184506396" ignored="false" />
+    <file path="/Session.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379177381126" ignored="false" />
+    <file path="/RedirectCookieService.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378687309188" ignored="false" />
+    <file path="/Authentication.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185770659" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,100 +98,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LoginController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/User/src/User/Controller/LoginController.php">
+      <file leaf-file-name="SaveHandler.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/SaveHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="5" selection-start="926" selection-end="1119" vertical-scroll-proportion="-13.75">
+            <state line="95" column="41" selection-start="1966" selection-end="1966" vertical-scroll-proportion="-19.666666">
               <folding>
-                <element signature="e#170#216#0" expanded="true" />
+                <element signature="e#175#225#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="service.config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/User/config/service.config.php">
+      <file leaf-file-name="Factory.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Logger/Factory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="2" selection-start="491" selection-end="491" vertical-scroll-proportion="-9.375">
+            <state line="75" column="27" selection-start="1398" selection-end="1398" vertical-scroll-proportion="-41.25">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RedirectCookieService.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/User/src/User/Auth/RedirectCookieService.php">
+      <file leaf-file-name="global.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/autoload/global.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="5" selection-start="654" selection-end="654" vertical-scroll-proportion="-18.75">
-              <folding>
-                <element signature="e#164#195#0" expanded="true" />
-              </folding>
+            <state line="39" column="13" selection-start="1273" selection-end="1273" vertical-scroll-proportion="-18.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.log" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/log/app.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="138" column="0" selection-start="16949" selection-end="16949" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Session.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/Entity/Session.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="5" selection-start="669" selection-end="669" vertical-scroll-proportion="-21.25">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DoctrineFactory.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineFactory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="5" selection-start="701" selection-end="701" vertical-scroll-proportion="-6.9166665">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Service.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/User/src/User/Auth/Service.php">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/Service.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="2" selection-start="235" selection-end="235" vertical-scroll-proportion="0.9583333">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExpenseController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Books/src/Books/Controller/ExpenseController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="635" selection-end="635" vertical-scroll-proportion="-13.75">
+            <state line="82" column="9" selection-start="1658" selection-end="1658" vertical-scroll-proportion="-18.416666">
               <folding>
-                <element signature="e#171#196#0" expanded="true" />
+                <element signature="e#174#210#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cookie.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Header/Cookie.php">
+      <file leaf-file-name="Authentication.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="20" selection-start="2623" selection-end="2623" vertical-scroll-proportion="-36.458332">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthenticatedController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/User/src/User/Controller/AuthenticatedController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="5" selection-start="1305" selection-end="1305" vertical-scroll-proportion="-7.1666665">
+            <state line="123" column="58" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.69484806">
               <folding>
-                <element signature="e#170#216#0" expanded="true" />
+                <element signature="e#167#203#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="CrudServiceAbstract.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0">
+            <state line="135" column="20" selection-start="2686" selection-end="2686" vertical-scroll-proportion="-22.791666">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.log" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/log/app.log">
+      <file leaf-file-name="DoctrineCrud.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SetCookie.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Header/SetCookie.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="580" column="28" selection-start="14822" selection-end="14822" vertical-scroll-proportion="-13.416667">
-              <folding />
+            <state line="70" column="21" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-17.166666">
+              <folding>
+                <element signature="e#169#217#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,22 +214,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/User/src/User/Auth/Exception/LoginFailed.php" />
-        <option value="$PROJECT_DIR$/module/User/view/user/login/index.phtml" />
-        <option value="$PROJECT_DIR$/module/User/src/User/Controller/LogoutController.php" />
-        <option value="$PROJECT_DIR$/module/User/config/module.config.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractServiceController.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/AuthenticatedController.php" />
-        <option value="$PROJECT_DIR$/module/User/src/User/Auth/Service.php" />
-        <option value="$PROJECT_DIR$/module/Property/src/Property/Controller/PropertyController.php" />
-        <option value="$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Controller/Plugin/Url.php" />
-        <option value="$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Router/Http/TreeRouteStack.php" />
-        <option value="$PROJECT_DIR$/module/Books/src/Books/Controller/ExpenseController.php" />
-        <option value="$PROJECT_DIR$/module/User/src/User/Auth/RedirectCookie.php" />
+        <option value="$PROJECT_DIR$/module/User/src/Auth/Controller/LoginController.php" />
         <option value="$PROJECT_DIR$/module/User/config/service.config.php" />
-        <option value="$PROJECT_DIR$/module/User/src/User/Controller/LoginController.php" />
-        <option value="$PROJECT_DIR$/module/User/src/User/Controller/AuthenticatedController.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/module/User/config/module.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/config/module.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Session/Entity/Session.php" />
+        <option value="$PROJECT_DIR$/module/User/src/Auth/Entity/Authentication.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineFactory.php" />
+        <option value="$PROJECT_DIR$/module/Application/config/service.config.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Session/SaveHandler.php" />
+        <option value="$PROJECT_DIR$/config/autoload/global.php" />
+        <option value="$PROJECT_DIR$/data/log/app.log" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Session/Service.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php" />
+        <option value="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
+        <option value="$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php" />
       </list>
     </option>
   </component>
@@ -244,8 +238,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="5" />
-    <option name="y" value="27" />
+    <option name="x" value="41" />
+    <option name="y" value="75" />
     <option name="width" value="2540" />
     <option name="height" value="1327" />
   </component>
@@ -291,6 +285,102 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="vendor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="zendframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -370,21 +460,24 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="fileTemplates" />
-    <property name="last_opened_file_path" value="/usr/local/zend/apache2/htdocs/EMRInterceptor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WorshipVoices.com" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/Application/src/Application/Session" />
+      <recent name="$PROJECT_DIR$/module/Application/src/Application/Session/Entity" />
+      <recent name="$PROJECT_DIR$/module/Application/src/Application/Session/Dao" />
       <recent name="$PROJECT_DIR$/module/User/src/User/Controller" />
       <recent name="$PROJECT_DIR$/module/User/src/User/Auth" />
-      <recent name="$PROJECT_DIR$/module/User/src/User/Controller/Service" />
-      <recent name="$PROJECT_DIR$/module/User/config" />
-      <recent name="$PROJECT_DIR$/module/User" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/module/Application/src/Application/Dao" />
-      <recent name="$PROJECT_DIR$/module/Books/src/Books" />
+      <recent name="$PROJECT_DIR$/module/User/src/Auth/Service" />
+      <recent name="$PROJECT_DIR$/module/User/view/auth" />
+      <recent name="$PROJECT_DIR$/module/User/src/Auth/Entity" />
+      <recent name="$PROJECT_DIR$/module/User/src/Auth/Dao" />
+      <recent name="$PROJECT_DIR$/module/User/src/Auth/Controller" />
     </key>
   </component>
   <component name="RunManager">
@@ -407,20 +500,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="5" y="27" width="2540" height="1327" extended-state="0" />
-    <editor active="true" />
+    <frame x="41" y="75" width="2540" height="1327" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32974318" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25180432" sideWeight="0.67025685" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979952" sideWeight="0.67025685" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25180432" sideWeight="0.67025685" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -495,133 +588,138 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Controller/Plugin/Url.php">
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/Dao/Doctrine.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="34" selection-start="3881" selection-end="3881" vertical-scroll-proportion="-26.541666">
-          <folding>
-            <element signature="e#349#365#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Controller/Plugin/Redirect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="17" selection-start="1638" selection-end="1638" vertical-scroll-proportion="-22.625">
-          <folding>
-            <element signature="e#349#372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Router/Http/TreeRouteStack.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="355" column="0" selection-start="11082" selection-end="11082" vertical-scroll-proportion="-18.125">
+        <state line="22" column="50" selection-start="454" selection-end="461" vertical-scroll-proportion="-10.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/Module.php">
+    <entry file="file://$PROJECT_DIR$/module/User/src/Auth/Controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="0" selection-start="3349" selection-end="3349" vertical-scroll-proportion="-16.875">
-          <folding>
-            <element signature="e#354#388#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Mvc/Router/RouteInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="16" selection-start="437" selection-end="437" vertical-scroll-proportion="-6.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Request.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="283" column="20" selection-start="8017" selection-end="8017" vertical-scroll-proportion="-10.833333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Header/Cookie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="20" selection-start="2623" selection-end="2623" vertical-scroll-proportion="-36.458332">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/zendframework/zendframework/library/Zend/Http/Header/SetCookie.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="580" column="28" selection-start="14822" selection-end="14822" vertical-scroll-proportion="-13.416667">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Books/src/Books/Controller/ExpenseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="635" selection-end="635" vertical-scroll-proportion="-13.75">
-          <folding>
-            <element signature="e#171#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/User/config/service.config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="2" selection-start="491" selection-end="491" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/User/src/User/Auth/Service.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="2" selection-start="235" selection-end="235" vertical-scroll-proportion="0.9583333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/User/src/User/Auth/RedirectCookieService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="5" selection-start="654" selection-end="654" vertical-scroll-proportion="-18.75">
-          <folding>
-            <element signature="e#164#195#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/User/src/User/Controller/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="5" selection-start="926" selection-end="1119" vertical-scroll-proportion="-13.75">
+        <state line="88" column="31" selection-start="2229" selection-end="2229" vertical-scroll-proportion="-18.791666">
           <folding>
             <element signature="e#170#216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/User/src/User/Controller/AuthenticatedController.php">
+    <entry file="file://$PROJECT_DIR$/module/User/src/Auth/Entity/Authentication.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="5" selection-start="1305" selection-end="1305" vertical-scroll-proportion="-7.1666665">
+        <state line="81" column="0" selection-start="1446" selection-end="1446" vertical-scroll-proportion="-13.625">
+          <folding>
+            <element signature="e#6#140#0" expanded="true" />
+            <element signature="e#166#198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/Auth/Controller/AuthenticatedController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="75" selection-start="594" selection-end="621" vertical-scroll-proportion="6.5833335">
           <folding>
             <element signature="e#170#216#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/module/Application/config/service.config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="4" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0">
+        <state line="14" column="25" selection-start="282" selection-end="282" vertical-scroll-proportion="-5.0">
+          <folding>
+            <element signature="e#165#201#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="547" selection-end="547" vertical-scroll-proportion="-11.875">
+          <folding>
+            <element signature="e#170#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Logger/Factory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="27" selection-start="1398" selection-end="1398" vertical-scroll-proportion="-41.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/autoload/global.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="13" selection-start="1273" selection-end="1273" vertical-scroll-proportion="-18.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/log/app.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="138" column="0" selection-start="16949" selection-end="16949" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="5" selection-start="701" selection-end="701" vertical-scroll-proportion="-6.9166665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="21" selection-start="1405" selection-end="1405" vertical-scroll-proportion="-17.166666">
+          <folding>
+            <element signature="e#169#217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/CrudServiceAbstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="20" selection-start="2686" selection-end="2686" vertical-scroll-proportion="-22.791666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/SaveHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="95" column="41" selection-start="1966" selection-end="1966" vertical-scroll-proportion="-19.666666">
+          <folding>
+            <element signature="e#175#225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/Entity/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="5" selection-start="669" selection-end="669" vertical-scroll-proportion="-21.25">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Session/Service.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="9" selection-start="1658" selection-end="1658" vertical-scroll-proportion="-18.416666">
+          <folding>
+            <element signature="e#174#210#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="58" selection-start="2457" selection-end="2457" vertical-scroll-proportion="0.69484806">
+          <folding>
+            <element signature="e#167#203#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

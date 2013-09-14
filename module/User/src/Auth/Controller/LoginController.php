@@ -7,11 +7,11 @@
  * @date: 9/7/13
  */
 
-namespace User\Controller;
+namespace Auth\Controller;
 
 use Application\Controller\AbstractController;
-use User\Auth\Exception\LoginFailed;
-use User\Auth\RedirectCookieService;
+use Auth\Exception\LoginFailed;
+use Auth\Service\RedirectCookie;
 use Zend\Http\Header\SetCookie;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\View\Model\ViewModel;
@@ -20,11 +20,11 @@ class LoginController extends AbstractController
 {
 
     /**
-     * @return \User\Auth\Service
+     * @return \Auth\Service\Authentication
      */
     protected function getAuthService()
     {
-        return $this->getServiceLocator()->get('User\Auth\Service');
+        return $this->getServiceLocator()->get('Auth\Service\Authentication');
     }
 
     /**
@@ -41,11 +41,11 @@ class LoginController extends AbstractController
     }
 
     /**
-     * @return RedirectCookieService
+     * @return RedirectCookie
      */
     protected function getRedirectCookieService()
     {
-        return $this->getServiceLocator()->get('User\Auth\RedirectCookieService');
+        return $this->getServiceLocator()->get('Auth\Service\RedirectCookie');
     }
 
     /**
@@ -89,7 +89,7 @@ class LoginController extends AbstractController
             $authService->validate($username, $password);
         }catch(LoginFailed $ex){
             $this->flashMessenger()->addMessage($ex->getMessage());
-            return $this->redirect()->toRoute('user-login',array('controller'=>'login'));
+            return $this->redirect()->toRoute('auth-login',array('controller'=>'login'));
         }
 
         return $this->getRedirectResponse($request);
@@ -100,6 +100,6 @@ class LoginController extends AbstractController
         $authService = $this->getAuthService();
         $authService->logout();
         $this->flashMessenger()->addMessage('OK. You have been logged out.');
-        return $this->redirect()->toRoute('user-login',array('controller'=>'login'));
+        return $this->redirect()->toRoute('auth-login',array('controller'=>'login'));
     }
 }

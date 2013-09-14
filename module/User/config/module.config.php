@@ -11,32 +11,32 @@ namespace User;
 return array(
     'controllers' => array(
         'invokables' => array(
-            'User\Controller\Login' => 'User\Controller\LoginController',
+            'Auth\Controller\Login' => 'Auth\Controller\LoginController',
             'User\Controller\Service\User' => 'User\Controller\Service\UserController',
         ),
     ),
     'router' => array(
         'routes' => array(
-            'user-login' => array(
+            'auth-login' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/user/login[/:action]',
+                    'route'    => '/login[/:action]',
                     'constraints' => array(
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'User\Controller\Login',
+                        'controller' => 'Auth\Controller\Login',
                         'action'     => 'index',
                     ),
                 ),
             ),
-            'user-logout' => array(
+            'auth-logout' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/user/logout[/]',
+                    'route'    => '/logout[/]',
                     'defaults' => array(
-                        'controller' => 'User\Controller\Login',
+                        'controller' => 'Auth\Controller\Login',
                         'action'     => 'logout',
                     ),
                 ),
@@ -61,6 +61,7 @@ return array(
     'view_manager' => array(
         'template_path_stack' => array(
             'user' => __DIR__ . '/../view',
+            'auth' => __DIR__ . '/../view',
         ),
     ),
 
@@ -70,11 +71,21 @@ return array(
             __NAMESPACE__ . '_driver' => array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
-                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity')
+                'paths' => array(
+                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
+                )
+            ),
+            'Auth_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    __DIR__ . '/../src/Auth/Entity',
+                )
             ),
             'orm_default' => array(
                 'drivers' => array(
-                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
+                    'Auth\Entity' => 'Auth_driver'
                 )
             )
         )

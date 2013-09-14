@@ -9,6 +9,8 @@
 
 namespace User;
 
+use Zend\Session\Container;
+
 class Module {
     public function getAutoloaderConfig()
     {
@@ -19,6 +21,7 @@ class Module {
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    'Auth' => __DIR__ . '/src/Auth',
                 ),
             ),
         );

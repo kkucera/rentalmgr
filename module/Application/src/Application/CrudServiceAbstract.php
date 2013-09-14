@@ -85,12 +85,13 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     /**
      * Delete an entity by id
      * @param $id
-     * @return object
+     * @return CrudServiceAbstract
      */
     public function delete($id)
     {
         $entity = $this->getDao()->load($id);
-        return $this->getDao()->delete($entity);
+        $this->getDao()->delete($entity);
+        return $this;
     }
 
     /**
@@ -112,6 +113,16 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     }
 
     /**
+     * Saves an entity.
+     * @param $entity
+     * @return object
+     */
+    public function save($entity)
+    {
+        return $this->getDao()->save($entity);
+    }
+
+    /**
      * Updates an entity.
      * @param $entity
      * @return object
@@ -119,6 +130,15 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     public function update($entity)
     {
         return $this->getDao()->update($entity);
+    }
+
+    /**
+     * @return $this
+     */
+    public function flush()
+    {
+        $this->getDao()->flush();
+        return $this;
     }
 
 }

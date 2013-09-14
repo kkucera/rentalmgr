@@ -34,7 +34,7 @@ abstract class Doctrine implements ServiceLocatorAwareInterface
      */
     protected function getDoctrineFactory()
     {
-        return new DoctrineFactory();
+        return $this->getServiceLocator()->get('Application\Dao\DoctrineFactory');
     }
 
     /**

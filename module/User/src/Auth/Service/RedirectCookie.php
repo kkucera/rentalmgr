@@ -7,13 +7,13 @@
  * @date: 9/7/13
  */
 
-namespace User\Auth;
+namespace Auth\Service;
 
 use Zend\Http\Header\SetCookie;
 use Zend\Http\Response;
 use Zend\Http\PhpEnvironment\Request;
 
-class RedirectCookieService {
+class RedirectCookie {
 
     /**
      * @var string

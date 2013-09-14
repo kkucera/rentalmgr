@@ -8,15 +8,35 @@
  */
 namespace Application\Dao;
 
+use Application\Logger\Factory as LoggerFactory;
+use Logger;
+
 abstract class DoctrineCrud extends Doctrine
 {
+
+    /**
+     * @return Logger
+     */
+    protected function getLogger()
+    {
+        return LoggerFactory::get($this);
+    }
+
+    /**
+     * @param $msg
+     */
+    protected function trace($msg)
+    {
+        $this->getLogger()->trace(__CLASS__.'::'.__FUNCTION__.' - '.$msg);
+    }
 
     /**
      * @param object $model
      * @return object
      */
-    protected function save($model)
+    public function save($model)
     {
+        $this->trace('save: '.get_class($model));
         if ($model != null)
         {
             $this->getEntityManager()->persist($model);
@@ -42,6 +62,7 @@ abstract class DoctrineCrud extends Doctrine
      */
     public function delete($model)
     {
+        $this->trace('delete: '.get_class($model));
         if ($model != null)
         {
             $this->getEntityManager()->remove($model);
@@ -57,6 +78,7 @@ abstract class DoctrineCrud extends Doctrine
      */
     public function load($id)
     {
+        $this->trace('load: '.$id);
         $model = null;
 
         if ($id > -1)
@@ -86,6 +108,5 @@ abstract class DoctrineCrud extends Doctrine
     {
         return $this->save($model);
     }
-
 
 }

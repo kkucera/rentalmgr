@@ -8,15 +8,17 @@
  */
 namespace User;
 
+use Zend\ServiceManager\ServiceManager;
+
 return array(
     'factories' => array(
-        'User\Auth\Service' => function($sm){
-            $service = new Auth\Service();
+        'Auth\Service\Authentication' => function(ServiceManager $sm){
+            $service = new \Auth\Service\Authentication;
             $service->setServiceLocator($sm);
             return $service;
         },
     ),
     'services' => array(
-        'User\Auth\RedirectCookieService' => new Auth\RedirectCookieService()
+        'Auth\Service\RedirectCookie' => new \Auth\Service\RedirectCookie,
     )
 );

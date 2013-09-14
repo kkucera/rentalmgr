@@ -10,13 +10,15 @@
 namespace Application;
 
 use Application\Dto\ErrorResponse;
+use Application\Logger\Factory as LoggerFactory;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\Session\Container;
+use Zend\Session\SessionManager;
 use Zend\View\Model\JsonModel;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\Http\PhpEnvironment\Request;
 use Logger;
-use Application\Logger\Factory as LoggerFactory;
 
 class Module
 {
@@ -68,19 +70,25 @@ class Module
     }
 
     /**
-     * @param MvcEvent $e
+     * @param MvcEvent $event
      */
-    public function onBootstrap(MvcEvent $e)
+    public function onBootstrap(MvcEvent $event)
     {
-        $eventManager        = $e->getApplication()->getEventManager();
+        $eventManager        = $event->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
-        ServiceLocator::register($e->getApplication()->getServiceManager());
+        ServiceLocator::register($event->getApplication()->getServiceManager());
 
         $eventManager->getSharedManager()->attach('*', MvcEvent::EVENT_DISPATCH_ERROR, array($this, 'onDispatchError'), -100);
 
         Logger::configure();
+
+        $serviceLocator = $event->getApplication()->getServiceManager();
+        $saveHandler = $serviceLocator->get('Application\Service\SaveHandler');
+        $manager = new SessionManager();
+        $manager->setSaveHandler($saveHandler);
+        Container::setDefaultManager($manager);
     }
 
     /**
@@ -148,4 +156,5 @@ class Module
         }
 
     }
+
 }

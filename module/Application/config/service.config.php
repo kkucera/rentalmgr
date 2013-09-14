@@ -13,13 +13,9 @@ use Zend\ServiceManager\ServiceManager;
 
 return array(
     'factories' => array(
-        'Application\Dao\DoctrineFactory' =>  function($sm) {
-            $factory = new DoctrineFactory();
-            $factory->setServiceLocator($sm);
-            return $factory;
-        },
-        'Zend\Authentication\AuthenticationService' => function(ServiceManager $serviceManager) {
-            return $serviceManager->get('doctrine.authenticationservice.orm_default');
-        }
     ),
+    'services' => array(
+        'Application\Service\SaveHandler' => new Session\SaveHandler,
+        'Application\Dao\DoctrineFactory' => new DoctrineFactory
+    )
 );
