@@ -11,6 +11,8 @@ namespace Application;
 
 use Application\Dto\ErrorResponse;
 use Application\Logger\Factory as LoggerFactory;
+use Logger;
+use Zend\Console\Request as ConsoleRequest;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Zend\Session\Container;
@@ -18,7 +20,6 @@ use Zend\Session\SessionManager;
 use Zend\View\Model\JsonModel;
 use Zend\Http\PhpEnvironment\Response;
 use Zend\Http\PhpEnvironment\Request;
-use Logger;
 
 class Module
 {
@@ -134,6 +135,11 @@ class Module
         $response = $event->getResponse();
         /** @var \Zend\Http\PhpEnvironment\Request $request */
         $request = $event->getRequest();
+
+        // just return on console requests
+        if($request instanceof ConsoleRequest){
+            return;
+        }
 
         $requestUri = $request->getRequestUri();
 

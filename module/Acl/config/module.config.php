@@ -6,51 +6,47 @@
  * Time: 9:09 PM
  * To change this template use File | Settings | File Templates.
  */
-namespace User;
+namespace Acl;
 
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Auth\Controller\Login' => 'Auth\Controller\LoginController',
-            'User\Controller\Service\User' => 'User\Controller\Service\UserController',
+            'Acl\Controller\Acl' => 'Acl\Controller\AclController',
+            'group' => 'Acl\Controller\GroupController',
+            // services
+            'Acl\Controller\Service\Group' => 'Acl\Controller\Service\GroupController',
+            // console controllers
+            'Acl\Controller\Console\Resource' => 'Acl\Controller\Console\ResourceController'
         ),
     ),
     'router' => array(
         'routes' => array(
-            'auth-login' => array(
+            'acl' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/login[/:action]',
+                    'route'    => '/acl/:controller[/:action][/:id]',
                     'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Login',
+                        'controller' => 'Acl\Controller\Acl',
                         'action'     => 'index',
                     ),
                 ),
             ),
-            'auth-logout' => array(
+            'acl-groups-service' => array(
                 'type'    => 'segment',
                 'options' => array(
-                    'route'    => '/logout[/]',
-                    'defaults' => array(
-                        'controller' => 'Auth\Controller\Login',
-                        'action'     => 'logout',
-                    ),
-                ),
-            ),
-            'user-service' => array(
-                'type'    => 'segment',
-                'options' => array(
-                    'route'    => '/service/user/:action[.:format][/:id]',
+                    'route'    => '/service/acl/:controller/:action[.:format][/:id]',
                     'constraints' => array(
+                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'User\Controller\Service\User',
+                        'controller' => 'Acl\Controller\Service\Acl',
                         'action'     => 'index',
                     ),
                 ),
@@ -60,9 +56,25 @@ return array(
 
     'view_manager' => array(
         'template_path_stack' => array(
-            'user' => __DIR__ . '/../view',
-            'auth' => __DIR__ . '/../view',
+            'acl' => __DIR__ . '/../view',
         ),
+    ),
+
+
+    'console' => array(
+        'router' => array(
+            'routes' => array(
+                'resource-register' => array(
+                    'options' => array(
+                        'route'    => 'acl register resources',
+                        'defaults' => array(
+                            'controller' => 'Acl\Controller\Console\Resource',
+                            'action'     => 'registerResources'
+                        )
+                    )
+                )
+            )
+        )
     ),
 
     // Doctrine config
@@ -72,20 +84,12 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => array(
-                    __DIR__ . '/../src/' . __NAMESPACE__ . '/Entity',
-                )
-            ),
-            'Auth_driver' => array(
-                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
-                'cache' => 'array',
-                'paths' => array(
-                    __DIR__ . '/../src/Auth/Entity',
+                    __DIR__ . '/../src/Entity',
                 )
             ),
             'orm_default' => array(
                 'drivers' => array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver',
-                    'Auth\Entity' => 'Auth_driver'
                 )
             )
         )
@@ -93,6 +97,6 @@ return array(
 
     // acl resources
     'acl-resource' => array(
-        'User\Resource\User'
+        'Acl\Resource\Group'
     )
 );

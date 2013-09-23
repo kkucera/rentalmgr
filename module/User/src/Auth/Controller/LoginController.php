@@ -97,9 +97,13 @@ class LoginController extends AbstractController
 
     public function logoutAction()
     {
+        /** @var \Zend\Http\PhpEnvironment\Request $request */
+        $request = $this->getRequest();
+        $data = $request->getPost();
+        $logoutMessage = $data['message'] ?: 'OK. You have been logged out.';
         $authService = $this->getAuthService();
         $authService->logout();
-        $this->flashMessenger()->addMessage('OK. You have been logged out.');
+        $this->flashMessenger()->addMessage($logoutMessage);
         return $this->redirect()->toRoute('auth-login',array('controller'=>'login'));
     }
 }

@@ -32,7 +32,9 @@ class DoctrineFactory implements ServiceLocatorAwareInterface
      */
     public function __destruct()
     {
-        self::$entityManager->flush();
+        if(self::$entityManager){
+            self::$entityManager->flush();
+        }
     }
 
     /**

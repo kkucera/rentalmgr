@@ -9,6 +9,7 @@
 
 namespace Auth\Controller;
 
+use Acl\Exception\PermissionDenied;
 use Application\Controller\AbstractController;
 use Auth\Service\RedirectCookie;
 use User\Entity\User;
@@ -21,6 +22,24 @@ class AuthenticatedController extends AbstractController
      * @var User
      */
     private $user;
+
+    /**
+     * Checks if the user has the required permission
+     * @param $permissionId
+     * @throws \Acl\Exception\PermissionDenied
+     */
+    protected function userHasPermission($permissionId)
+    {
+        $this->getPermissionService()->requirePermissionId($permissionId, $this->user->getId());
+    }
+
+    /**
+     * @return \Acl\Service\Permission
+     */
+    protected function getPermissionService()
+    {
+        return $this->getServiceLocator()->get('Acl\Service\Permission');
+    }
 
     /**
      * @return \Auth\Service\Authentication
@@ -79,6 +98,7 @@ class AuthenticatedController extends AbstractController
             return $this->redirectToLogin($event);
         }
         $this->setUser($user);
+        $this->layout('layout/authenticated');
         return parent::onDispatch($event);
     }
 
