@@ -39,4 +39,13 @@ class UserPermission extends CrudServiceAbstract {
     {
         return $this->getDao()->getPermissionsByUserId($userId);
     }
+
+    /**
+     * @param $userId
+     * @return \int[]
+     */
+    public function getPermissionIdsForUserId($userId)
+    {
+        return $this->getDao()->getPermissionIdsForUserId($userId);
+    }
 }

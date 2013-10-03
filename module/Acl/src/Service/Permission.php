@@ -180,4 +180,12 @@ class Permission extends CrudServiceAbstract implements ServiceLocatorAwareInter
         return 'Acl\Dao\Doctrine\Permission';
     }
 
+    /**
+     *
+     */
+    public function deleteAllPermissions()
+    {
+        return $this->getDao()->deleteAllPermissions();
+    }
+
 }

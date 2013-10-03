@@ -135,14 +135,20 @@ class ResourceController extends AbstractConsoleController
     }
 
     /**
-     *
+     * Populate the database with all available resources and permissions
      */
     public function registerResourcesAction()
     {
+
         $resourceNames = $this->getRegisteredResources();
         $resources = $this->validateResources($resourceNames);
+
         $resourceService = $this->getResourceService();
+        $permissionService = $this->getPermissionService();
+
+        $permissionService->deleteAllPermissions();
         $resourceService->deleteAllResources();
+
         foreach($resources as $resource){
             $resourceService->save($resource);
 

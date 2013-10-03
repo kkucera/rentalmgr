@@ -31,8 +31,19 @@ class Resource extends CrudServiceAbstract{
         parent::save($resource);
     }
 
+    /**
+     * @return \Acl\Dao\Doctrine\Resource
+     */
+    public function getDao()
+    {
+        return parent::getDao();
+    }
+
+    /**
+     * @return mixed
+     */
     public function deleteAllResources()
     {
-
+        return $this->getDao()->deleteAllResources();
     }
 }

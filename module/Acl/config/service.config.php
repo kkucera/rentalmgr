@@ -22,6 +22,7 @@ return array(
     'services' => array(
         'Acl\Service\Resource' => new Service\Resource,
         'Acl\Service\UserPermission' => new Service\UserPermission,
-        'Acl\Service\UserGroup' => new Service\UserGroup
+        'Acl\Service\UserGroup' => new Service\UserGroup,
+        'Acl\Service\Group' => new Service\Group
     )
 );

@@ -47,4 +47,14 @@ class Permission extends DoctrineCrud
         return $permissionIds;
     }
 
+    public function deleteAllPermissions()
+    {
+        $em = $this->getEntityManager();
+        $conn = $this->getEntityManager()->getConnection();
+        $conn->exec('SET foreign_key_checks = 0');
+        $result = $em->createQuery('DELETE FROM \Acl\Entity\Permission')->execute();
+        $conn->exec('SET foreign_key_checks = 1');
+        return $result;
+    }
+
 }

@@ -12,9 +12,13 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Acl\Controller\Acl' => 'Acl\Controller\AclController',
-            'group' => 'Acl\Controller\GroupController',
+            'Acl\Controller\Group' => 'Acl\Controller\GroupController',
+            'Acl\Controller\UserGroup' => 'Acl\Controller\UserGroupController',
+            'Acl\Controller\UserPermission' => 'Acl\Controller\UserPermissionController',
             // services
             'Acl\Controller\Service\Group' => 'Acl\Controller\Service\GroupController',
+            'Acl\Controller\Service\UserGroup' => 'Acl\Controller\Service\UserGroupController',
+            'Acl\Controller\Service\UserPermission' => 'Acl\Controller\Service\UserPermissionController',
             // console controllers
             'Acl\Controller\Console\Resource' => 'Acl\Controller\Console\ResourceController'
         ),
@@ -22,35 +26,136 @@ return array(
     'router' => array(
         'routes' => array(
             'acl' => array(
-                'type'    => 'segment',
+                'type'    => 'literal',
                 'options' => array(
-                    'route'    => '/acl/:controller[/:action][/:id]',
-                    'constraints' => array(
-                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ),
+                    'route'    => '/acl',
                     'defaults' => array(
                         'controller' => 'Acl\Controller\Acl',
                         'action'     => 'index',
                     ),
                 ),
-            ),
-            'acl-groups-service' => array(
-                'type'    => 'segment',
-                'options' => array(
-                    'route'    => '/service/acl/:controller/:action[.:format][/:id]',
-                    'constraints' => array(
-                        'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'group' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/group',
+                            'defaults' => array(
+                                'controller' => 'Acl\Controller\Group',
+                                'action'     => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'action' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/:action[/:id]',
+                                    'constraints' => array(
+                                        'action' => '[^service][a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\Group',
+                                    ),
+                                ),
+                            ),
+                            'service' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/service/:action[.:format][/:id]',
+                                    'constraints' => array(
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\Service\Group',
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
-                    'defaults' => array(
-                        'controller' => 'Acl\Controller\Service\Acl',
-                        'action'     => 'index',
+                    'user-group' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/user-group',
+                            'defaults' => array(
+                                'controller' => 'Acl\Controller\UserGroup',
+                                'action'     => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'action' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/:action[/:id]',
+                                    'constraints' => array(
+                                        'action' => '[^service][a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\UserGroup',
+                                    ),
+                                ),
+                            ),
+                            'service' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/service/:action[.:format][/:id]',
+                                    'constraints' => array(
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\Service\UserGroup',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    'user-permission' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/user-permission',
+                            'defaults' => array(
+                                'controller' => 'Acl\Controller\UserPermission',
+                                'action'     => 'index',
+                            ),
+                        ),
+                        'may_terminate' => true,
+                        'child_routes' => array(
+                            'action' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/:action[/:id]',
+                                    'constraints' => array(
+                                        'action' => '[^service][a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\UserPermission',
+                                    ),
+                                ),
+                            ),
+                            'service' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/service/:action[.:format][/:id]',
+                                    'constraints' => array(
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'Acl\Controller\Service\UserPermission',
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
             ),
+
         ),
     ),
 

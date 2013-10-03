@@ -12,6 +12,7 @@ namespace Acl\Dao\Doctrine;
 
 use Application\Dao\DoctrineCrud;
 use Acl\Entity\Permission as PermissionEntity;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 class UserPermission extends DoctrineCrud
 {
@@ -32,5 +33,24 @@ class UserPermission extends DoctrineCrud
     public function getPermissionsByUserId($userId)
     {
         return $this->getRepository()->findBy(array('userId'=>$userId));
+    }
+
+    /**
+     * @param $userId
+     * @return int[]
+     */
+    public function getPermissionIdsForUserId($userId)
+    {
+        $rsm = new ResultSetMapping;
+        $rsm->addScalarResult('permissionId', 'id');
+        $query = $this->getEntityManager()->createNativeQuery('
+            SELECT permissionId FROM acl_user_permission WHERE userId = :userId ORDER BY permissionId
+        ',$rsm);
+        $results = $query->execute(array('userId'=>$userId));
+        $permissionIds = array();
+        foreach($results as $row){
+            $permissionIds[] = $row['id'];
+        }
+        return $permissionIds;
     }
 }

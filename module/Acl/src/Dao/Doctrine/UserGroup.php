@@ -11,7 +11,7 @@ namespace Acl\Dao\Doctrine;
 
 
 use Application\Dao\DoctrineCrud;
-use Acl\Entity\Permission as PermissionEntity;
+use Acl\Entity\UserGroup as UserGroupEntity;
 
 class UserGroup extends DoctrineCrud
 {
@@ -26,24 +26,34 @@ class UserGroup extends DoctrineCrud
     }
 
     /**
-     * @param $userId
-     * @return PermissionEntity[]
+     * @return UserGroupEntity[]
      */
-    public function getPermissionsByUserId($userId)
+    public function getList()
     {
         $qb = $this->getEntityManager()->createQueryBuilder();
-//        $qb->select('g, p')
-//           ->from('Acl\Entity\Group', 'g')
-//           ->innerJoin('Acl\Entity\UserGroup','ug','WITH','ug.group = g')
-//           ->innerJoin('g.permissions','p')
-//           ->where('ug.userId = :userId');
-        $qb->select('p')
-           ->from('Acl\Entity\Permission', 'p')
-           ->innerJoin('Acl\Entity\Group','g','ON','g.permissions = p')
-           ->innerJoin('Acl\Entity\UserGroup','ug','WITH','ug.group = g')
-           ->where('ug.userId = :userId');
+        $qb->select('ug, g')
+            ->from('Acl\Entity\UserGroup', 'ug')
+            ->innerJoin('ug.group','g');
+
+        $query = $qb->getQuery();
+        return $query->execute();
+    }
+
+    /**
+     * @param $userId
+     * @return UserGroupEntity[]
+     */
+    public function getListByUserId($userId)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('ug, g')
+            ->from('Acl\Entity\UserGroup', 'ug')
+            ->innerJoin('ug.group','g')
+            ->where('ug.userId = :userId')
+            ->orderBy('g.name');
 
         $query = $qb->getQuery();
         return $query->execute(array('userId'=>$userId));
     }
+
 }

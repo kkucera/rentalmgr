@@ -79,7 +79,9 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
      */
     public function create($entity)
     {
-        return $this->getDao()->create($entity);
+        $entity = $this->getDao()->create($entity);
+        $this->flush();
+        return $entity;
     }
 
     /**
@@ -119,7 +121,9 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
      */
     public function save($entity)
     {
-        return $this->getDao()->save($entity);
+        $entity = $this->getDao()->save($entity);
+        $this->flush();
+        return $entity;
     }
 
     /**
@@ -129,7 +133,9 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
      */
     public function update($entity)
     {
-        return $this->getDao()->update($entity);
+        $entity = $this->getDao()->update($entity);
+        $this->flush();
+        return $entity;
     }
 
     /**

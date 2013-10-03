@@ -40,4 +40,14 @@ class UserGroup extends CrudServiceAbstract
     {
         return $this->getDao()->getPermissionsByUserId($userId);
     }
+
+    /**
+     * @param $userId
+     * @return \Acl\Entity\UserGroup[]
+     */
+    public function getGroupsByUserId($userId)
+    {
+        return $this->getDao()->getListByUserId($userId);
+    }
+
 }
