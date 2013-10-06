@@ -7,7 +7,7 @@
  * @date: 10/2/13
  */
 
-namespace Application\Marshal\Strategy;
+namespace Application\Hydrator\Strategy;
 
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 use DateTime;

@@ -17,6 +17,7 @@ use Application\Marshal\EntityToArray;
 use Application\Marshal\EntitiesToArray;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\View\Model\JsonModel;
+use Application\Hydrator\Entity as EntityHydrator;
 
 abstract class AbstractCrudServiceController extends AbstractServiceController
 {
@@ -32,28 +33,11 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
     abstract protected function getEntityService();
 
     /**
-     * @param null $entity
-     * @return ArrayToEntity
+     * @return EntityHydrator
      */
-    protected function getArrayToEntityMarshaller($entity = null)
+    protected function getEntityHydrator()
     {
-        return new ArrayToEntity($entity ?: $this->getEntity());
-    }
-
-    /**
-     * @return EntityToArray
-     */
-    protected function getEntityToArrayMarshaller()
-    {
-        return new EntityToArray($this->getEntity());
-    }
-
-    /**
-     * @return EntitiesToArray
-     */
-    protected function getEntitiesToArrayMarshaller()
-    {
-        return new EntitiesToArray($this->getEntity());
+        return new EntityHydrator($this->getEntity());
     }
 
     public function indexAction()
@@ -86,17 +70,15 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
 
         $data = $this->createPrepareData($data);
 
-        $marshaller = $this->getArrayToEntityMarshaller();
-        $entity = $marshaller->marshal($data);
+        $hydrator = $this->getEntityHydrator();
+        $entity = $hydrator->hydrate($data, $this->getEntity());
 
         $entity = $this->createPrepareEntity($entity);
 
         $service = $this->getEntityService();
         $entity = $service->save($entity);
 
-        $marshaller = $this->getEntityToArrayMarshaller();
-
-        return new JsonModel($marshaller->marshal($entity));
+        return new JsonModel($hydrator->extract($entity));
     }
 
     public function deleteAction()
@@ -128,9 +110,9 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
             throw new EntityNotFound('The entity '.get_class($this->getEntity()).' with id ['.$id.'] was not found.');
         }
 
-        $marshaller = $this->getEntityToArrayMarshaller();
+        $hydrator = $this->getEntityHydrator();
 
-        return new JsonModel($marshaller->marshal($entity));
+        return new JsonModel($hydrator->extract($entity));
     }
 
     public function updateAction()
@@ -148,19 +130,18 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
             throw new EntityNotFound('The entity '.get_class($this->getEntity()).' with id ['.$id.'] was not found.');
         }
 
-        $marshaller = $this->getArrayToEntityMarshaller($entity);
-        $entity = $marshaller->marshal($data);
+        $hydrator = $this->getEntityHydrator();
+        $entity = $hydrator->hydrate($data, $entity);
 
-        $marshaller = $this->getEntityToArrayMarshaller();
-        return new JsonModel($marshaller->marshal($entity));
+        return new JsonModel($hydrator->extract($entity));
     }
 
     public function getListAction()
     {
         $service = $this->getEntityService();
         $entities = $service->getList();
-        $marshaller = $this->getEntitiesToArrayMarshaller();
-        return new JsonModel($marshaller->marshal($entities));
+        $hydrator = $this->getEntityHydrator();
+        return new JsonModel($hydrator->extractAll($entities));
     }
 
 }

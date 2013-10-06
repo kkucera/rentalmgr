@@ -42,8 +42,8 @@ class UserGroupController extends AbstractCrudServiceController
             throw new InvalidArgumentException('Missing required parameter [id].');
         }
         $entities = $this->getEntityService()->getGroupsByUserId($id);
-        $marshaller = $this->getEntitiesToArrayMarshaller();
-        return new JsonModel($marshaller->marshal($entities));
+        $hydrator = $this->getEntityHydrator();
+        return new JsonModel($hydrator->extractAll($entities));
     }
 
     /**

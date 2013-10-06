@@ -7,10 +7,10 @@
  * @date: 10/2/13
  */
 
-namespace Application\Marshal\Strategy;
+namespace Application\Hydrator\Strategy;
 
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
-use Application\Marshal\EntityToArray;
+use Application\Hydrator\Entity as EntityHydrator;
 use DoctrineModule\Stdlib\Hydrator\Strategy\AbstractCollectionStrategy;
 
 class DoctrineEntity extends AbstractCollectionStrategy
@@ -22,8 +22,8 @@ class DoctrineEntity extends AbstractCollectionStrategy
      */
     public function extract($value)
     {
-        $marshaller = new EntityToArray($value);
-        return $marshaller->marshal($value);
+        $hydrator = new EntityHydrator($value);
+        return $hydrator->extract($value);
     }
 
     /**

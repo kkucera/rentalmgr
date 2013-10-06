@@ -44,8 +44,8 @@ class UserPermissionController extends AbstractCrudServiceController
             throw new InvalidArgumentException('Missing required parameter [id].');
         }
         $entities = $this->getEntityService()->getPermissionsByUserId($id);
-        $marshaller = $this->getEntitiesToArrayMarshaller();
-        return new JsonModel($marshaller->marshal($entities));
+        $hydrator = $this->getEntityHydrator();
+        return new JsonModel($hydrator->extractAll($entities));
     }
 
     /**
