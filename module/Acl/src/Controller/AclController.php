@@ -9,30 +9,12 @@
 
 namespace Acl\Controller;
 
-use Application\Controller\AbstractController;
-use Property\Entity\Property;
-use Property\Marshal\ArrayToProperty;
-use Property\Service;
+use Auth\Controller\AuthenticatedController;
 
-class AclController extends AbstractController
+class AclController extends AuthenticatedController
 {
 
     public function indexAction()
-    {
-
-    }
-
-    public function addAction()
-    {
-
-    }
-
-    public function editAction()
-    {
-
-    }
-
-    public function deleteAction()
     {
 
     }

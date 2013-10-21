@@ -85,7 +85,7 @@ class Permission extends CrudServiceAbstract implements ServiceLocatorAwareInter
      * @param $userId
      * @return PermissionEntity[]
      */
-    protected function getPermissionsByUserId($userId)
+    public function getPermissionsByUserId($userId)
     {
         if(empty(self::$userPermissions[$userId])){
             self::$userPermissions[$userId] = $this->loadUserPermissions($userId);
@@ -102,7 +102,7 @@ class Permission extends CrudServiceAbstract implements ServiceLocatorAwareInter
         $permissions = array();
         $permissionIds = $this->getDao()->getPermissionIdsForUserId($userId);
         foreach($permissionIds as $permissionId){
-            $permissions[$permissionId] = true;
+            $permissions[$permissionId] = $permissionId;
         }
         return $permissions;
     }

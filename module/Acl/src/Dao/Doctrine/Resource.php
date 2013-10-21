@@ -9,8 +9,8 @@
 
 namespace Acl\Dao\Doctrine;
 
-
 use Application\Dao\DoctrineCrud;
+use Acl\Entity\Resource as ResourceEntity;
 
 class Resource extends DoctrineCrud {
 
@@ -23,14 +23,32 @@ class Resource extends DoctrineCrud {
         return 'Acl\Entity\Resource';
     }
 
-    public function deleteAllResources()
+    /**
+     * @return Permission
+     */
+    protected function getPermissionDao()
     {
-        $em = $this->getEntityManager();
-        $conn = $this->getEntityManager()->getConnection();
-        $conn->exec('SET foreign_key_checks = 0');
-        $result = $em->createQuery('DELETE FROM \Acl\Entity\Resource')->execute();
-        $conn->exec('SET foreign_key_checks = 1');
-        return $result;
+        return new Permission();
+    }
+
+    /**
+     * Get an array of resource objects the user has access to.
+     * @param $userId
+     * @return ResourceEntity[]|null
+     */
+    public function getResourcesUserHasPermissionFor($userId)
+    {
+        $permissions = $this->getPermissionDao()->getPermissionIdsForUserId($userId);
+        $permissionList = implode(',',$permissions);
+
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('resource');
+        $qb->from($this->getEntityName(),'resource');
+        $qb->innerJoin('Acl\Entity\Permission','permission','WITH','permission.resource=resource');
+        $qb->where("permission.id IN ($permissionList)");
+        $query = $qb->getQuery();
+
+        return $query->execute();
     }
 
 }

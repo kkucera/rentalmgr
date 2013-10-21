@@ -44,6 +44,19 @@ class Resource {
     private $permissions;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Resource")
+     * @ORM\JoinColumn(name="parentId", referencedColumnName="id")
+     * @var Resource
+     */
+    private $parent;
+
+    /**
+     * @ORM\Column(type="string", length=128)
+     * @var string
+     */
+    private $class;
+
+    /**
      * @param mixed $description
      * @return Resource
      */
@@ -113,6 +126,42 @@ class Resource {
     public function getPermissions()
     {
         return $this->permissions;
+    }
+
+    /**
+     * @param Resource $parent
+     * @return Resource
+     */
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
+    /**
+     * @return Resource
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param string $class
+     * @return Resource
+     */
+    public function setClass($class)
+    {
+        $this->class = $class;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClass()
+    {
+        return $this->class;
     }
 
 }

@@ -13,9 +13,10 @@ use Zend\ServiceManager\ServiceManager;
 
 return array(
     'factories' => array(
+        'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
     ),
     'services' => array(
         'Application\Service\SaveHandler' => new Session\SaveHandler,
-        'Application\Dao\DoctrineFactory' => new DoctrineFactory
+        'Application\Dao\DoctrineFactory' => new DoctrineFactory,
     )
 );

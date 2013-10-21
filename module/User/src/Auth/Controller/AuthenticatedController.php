@@ -10,11 +10,13 @@
 namespace Auth\Controller;
 
 use Acl\Exception\PermissionDenied;
+use Acl\Service\ZendAcl;
 use Application\Controller\AbstractController;
 use Auth\Service\RedirectCookie;
 use User\Entity\User;
 use Zend\Http\Header\SetCookie;
 use Zend\Mvc\MvcEvent;
+use Zend\View\Helper\Navigation\AbstractHelper as Navigation;
 
 class AuthenticatedController extends AbstractController
 {
@@ -71,6 +73,29 @@ class AuthenticatedController extends AbstractController
     }
 
     /**
+     * @param $userId
+     * @return $this
+     */
+    protected function registerZendAclForUser($userId)
+    {
+        /** @var ZendAcl $zendAcl */
+        $zendAcl = $this->getServiceLocator()->get('Acl\Service\ZendAcl');
+        return $zendAcl->initAclForUser($userId);
+    }
+
+    /**
+     * @param ZendAcl $zendAcl
+     * @param $userId
+     */
+    protected function registerZendAclWithNavigation(ZendAcl $zendAcl, $userId)
+    {
+        // Set default navigation ACL and role statically:
+        Navigation::setDefaultAcl($zendAcl);
+        Navigation::setDefaultRole("user:$userId");
+    }
+
+
+    /**
      * @return User
      */
     public function getUser()
@@ -98,7 +123,13 @@ class AuthenticatedController extends AbstractController
             return $this->redirectToLogin($event);
         }
         $this->setUser($user);
+
+        $zendAcl = $this->registerZendAclForUser($user->getId());
+        $this->registerZendAclWithNavigation($zendAcl, $user->getId());
+
         $this->layout('layout/authenticated');
+        $this->layout()->setVariable('userName', $user->getName());
+        $this->layout()->setVariable('userId', $user->getId());
         return parent::onDispatch($event);
     }
 

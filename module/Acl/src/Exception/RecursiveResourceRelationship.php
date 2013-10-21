@@ -4,7 +4,14 @@
  * @package rentalmgr
  * @copyright Copyright (c) 2013 Kevin Kucera
  * @user: kevin
- * @date: 9/21/13
+ * @date: 10/19/13
  */
-?>
-<div class="page-title">Welcome to ACL Groups</div>
+
+namespace Acl\Exception;
+
+use Exception;
+
+class RecursiveResourceRelationship extends Exception
+{
+
+}

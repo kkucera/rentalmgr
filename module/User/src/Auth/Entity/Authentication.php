@@ -29,7 +29,7 @@ class Authentication {
      * @ORM\Column(type="datetime")
      * @var DateTime
      */
-    private $lastModified;
+    private $lastAccessed;
 
     /**
      * @ORM\Column(type="boolean")
@@ -49,25 +49,25 @@ class Authentication {
     public function __construct()
     {
         $this->setAuthenticated(false);
-        $this->setLastModified(new DateTime());
+        $this->setLastAccessed(new DateTime());
     }
 
     /**
-     * @param \DateTime $lastModified
+     * @param \DateTime $lastAccessed
      * @return Authentication
      */
-    public function setLastModified($lastModified)
+    public function setLastAccessed($lastAccessed)
     {
-        $this->lastModified = $lastModified;
+        $this->lastAccessed = $lastAccessed;
         return $this;
     }
 
     /**
      * @return \DateTime
      */
-    public function getLastModified()
+    public function getLastAccessed()
     {
-        return $this->lastModified;
+        return $this->lastAccessed;
     }
 
     /**

@@ -4,15 +4,14 @@
  * @package rentalmgr
  * @copyright Copyright (c) 2013 Kevin Kucera
  * @user: kevin
- * @date: 9/22/13
+ * @date: 10/19/13
  */
 
-namespace User\Resource;
+namespace User\Resource\User;
 
-use Acl\Entity\Permission;
-use Acl\Resource\AbstractResource;
+use Acl\Resource\AbstractPermission;
 
-class User extends AbstractResource
+class Delete extends AbstractPermission
 {
 
     /**
@@ -22,7 +21,7 @@ class User extends AbstractResource
      */
     public function getId()
     {
-        return 20;
+        return 23;
     }
 
     /**
@@ -31,7 +30,7 @@ class User extends AbstractResource
      */
     public function getName()
     {
-        return 'User';
+        return 'Delete';
     }
 
     /**
@@ -40,17 +39,6 @@ class User extends AbstractResource
      */
     public function getDescription()
     {
-        return 'Ability to manager application users';
-    }
-
-    /**
-     * @return Permission[]
-     */
-    public function definePermissions()
-    {
-        $this->addPermission(new User\View);
-        $this->addPermission(new User\Create);
-        $this->addPermission(new User\Edit);
-        $this->addPermission(new User\Delete);
+        return 'Delete existing users';
     }
 }

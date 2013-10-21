@@ -79,7 +79,7 @@ class ResourceController extends AbstractConsoleController
                 if(empty($permissionIndex[$permission->getId()])){
                     $permissionIndex[$permission->getId()] = array();
                 }
-                $permissionIndex[$permission->getId()][] = get_class($resource);
+                $permissionIndex[$permission->getId()][] = get_class($permission);
             }
 
             $resources[] = $resource;
@@ -94,9 +94,9 @@ class ResourceController extends AbstractConsoleController
         }
 
         //check for duplicate resource ids
-        foreach($permissionIndex as $id=>$resourcesWithId){
-            if(count($resourcesWithId)>1){
-                $duplicatePermissionIds[$id] = $resourcesWithId;
+        foreach($permissionIndex as $id=>$permissionWithId){
+            if(count($permissionWithId)>1){
+                $duplicatePermissionIds[$id] = $permissionWithId;
                 $invalidResourceFound = true;
             }
         }
@@ -121,7 +121,7 @@ class ResourceController extends AbstractConsoleController
                 }
             }
             if(!empty($duplicatePermissionIds)){
-                $message.=PHP_EOL.'The following resources share the same permission id:';
+                $message.=PHP_EOL.'The following permissions share the same permission id:';
                 foreach($duplicatePermissionIds as $id=>$resourceNames){
                     $message.=PHP_EOL.' - Permission Id: '.$id;
                     foreach($resourceNames as $name){
@@ -150,12 +150,12 @@ class ResourceController extends AbstractConsoleController
         $resourceService->deleteAllResources();
 
         foreach($resources as $resource){
-            $resourceService->save($resource);
+            $resourceService->initialize($resource);
 
             $permissions = $resource->getPermissions();
             $permissionService = $this->getPermissionService();
             foreach($permissions as $permission){
-                $permissionService->save($permission);
+                $permissionService->save($permission->getEntity());
             }
         }
     }

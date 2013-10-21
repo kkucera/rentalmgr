@@ -1,5 +1,5 @@
 body {
-    padding-top: 60px;
+    padding-top: 80px;
     padding-bottom: 40px;
 }
 
@@ -34,4 +34,32 @@ div.container a.brand {
     background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
     margin-left: 0;
     padding: 8px 20px 12px 40px;
+}
+
+.navbar-header div{
+    display:inline-block;
+}
+
+div#logo{
+    font-size: 20px;
+}
+div#logo span#block1{
+    font-style: italic;
+    color:#fff;
+}
+div#logo span#block2{
+    font-weight:bold;
+    color:#599fcf;
+}
+
+div.cfm-menu-bar{
+    font-size:12px;
+}
+
+div.cfm-menu-bar .cfm-menu{
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    margin: 0 100px 0 100px;
 }

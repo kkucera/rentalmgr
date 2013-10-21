@@ -2,31 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f403e37b-a49a-41f5-8481-07346e1fa0c2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/ArrayToEntity.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/EntitiesToArray.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/EntityAbstract.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/EntityToArray.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/EntityHydrator.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Entity.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/Strategy/DatetimeToString.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DatetimeToString.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/module/Application/src/Application/Marshal/Strategy/DoctrineEntity.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DoctrineEntity.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/AbstractPermission.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Acl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/Auth/Controller/Service/AuthorizationController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Group/Create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Resource/User/Create.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Group/Delete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Resource/User/Delete.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Group/Edit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Resource/User/Edit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Exception/RecursiveResourceRelationship.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Group/View.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/User/src/User/Resource/User/View.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/src/Service/ZendAcl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/css/cfm/cfm.menu.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/cfm/cfm.menu.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module/Acl/view/acl/acl/index.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractCrudServiceController.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractCrudServiceController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserGroupController.php" afterPath="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserGroupController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserPermissionController.php" afterPath="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserPermissionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Resource/AbstractResource.php" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/AbstractResource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Controller/AclController.php" afterPath="$PROJECT_DIR$/module/Acl/src/Controller/AclController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/Auth/Controller/AuthenticatedController.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Controller/AuthenticatedController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/Auth/Entity/Authentication.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Entity/Authentication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Service/Authentication.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" afterPath="$PROJECT_DIR$/module/Application/src/Application/Dao/DoctrineCrud.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Resource/Group.php" afterPath="$PROJECT_DIR$/module/Acl/src/Resource/Group.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/Auth/Controller/LoginController.php" afterPath="$PROJECT_DIR$/module/User/src/Auth/Controller/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Service/Permission.php" afterPath="$PROJECT_DIR$/module/Acl/src/Service/Permission.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine/Resource.php" afterPath="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine/Resource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Entity/Resource.php" afterPath="$PROJECT_DIR$/module/Acl/src/Entity/Resource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Service/Resource.php" afterPath="$PROJECT_DIR$/module/Acl/src/Service/Resource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/src/Controller/Console/ResourceController.php" afterPath="$PROJECT_DIR$/module/Acl/src/Controller/Console/ResourceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/src/User/Resource/User.php" afterPath="$PROJECT_DIR$/module/User/src/User/Resource/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/view/layout/authenticated.phtml" afterPath="$PROJECT_DIR$/module/Application/view/layout/authenticated.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/auth/auto.logout.js" afterPath="$PROJECT_DIR$/public/js/auth/auto.logout.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/view/acl/group/index.phtml" afterPath="$PROJECT_DIR$/module/Acl/view/acl/group/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/config/module.config.php" afterPath="$PROJECT_DIR$/module/Acl/config/module.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/User/config/module.config.php" afterPath="$PROJECT_DIR$/module/User/config/module.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Acl/config/service.config.php" afterPath="$PROJECT_DIR$/module/Acl/config/service.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/config/service.config.php" afterPath="$PROJECT_DIR$/module/Application/config/service.config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rentalmgr.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381097416854" ignored="false" />
+    <file path="/Dummy.txt" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382199188287" ignored="false" />
     <file path="/index.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377831595290" ignored="false" />
     <file path="/ExpenseController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378682751127" ignored="false" />
     <file path="/Module.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379784462189" ignored="false" />
-    <file path="/module.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380415706447" ignored="false" />
+    <file path="/module.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382314761833" ignored="false" />
     <file path="/Expense.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377989596568" ignored="false" />
     <file path="/ExpenseCategory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377987596910" ignored="false" />
     <file path="/PropertyController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378682739666" ignored="false" />
     <file path="/Property.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1377988524736" ignored="false" />
     <file path="/Service.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185189355" ignored="false" />
-    <file path="/a.dummy" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380900294575" ignored="false" />
+    <file path="/a.dummy" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382201612269" ignored="false" />
     <file path="/Doctrine.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380414610125" ignored="false" />
     <file path="/DoctrineFactory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379781936426" ignored="false" />
     <file path="/ServiceLocator.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378076541133" ignored="false" />
@@ -36,7 +66,7 @@
     <file path="/MarshallerInterface.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378081701642" ignored="false" />
     <file path="/CrudServiceAbstract.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380417022680" ignored="false" />
     <file path="/ArrayToExpense.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378092038790" ignored="false" />
-    <file path="/service.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379808319818" ignored="false" />
+    <file path="/service.config.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382203155576" ignored="false" />
     <file path="/AbstractController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378145975112" ignored="false" />
     <file path="/ExpenseControl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147301239" ignored="false" />
     <file path="/AbstractServiceController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378147265740" ignored="false" />
@@ -48,13 +78,13 @@
     <file path="/DoctrineEntityManager.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378353101916" ignored="false" />
     <file path="/Factory.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378528772819" ignored="false" />
     <file path="/global.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378866183071" ignored="false" />
-    <file path="/User.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379903401001" ignored="false" />
-    <file path="/LoginController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379466710537" ignored="false" />
-    <file path="/index.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379789897075" ignored="false" />
+    <file path="/User.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382313096338" ignored="false" />
+    <file path="/LoginController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381103247614" ignored="false" />
+    <file path="/index.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381100844383" ignored="false" />
     <file path="/UserController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378591258135" ignored="false" />
     <file path="/LoginFailed.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378593606409" ignored="false" />
     <file path="/LogoutController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378595166334" ignored="false" />
-    <file path="/AuthenticatedController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379899342801" ignored="false" />
+    <file path="/AuthenticatedController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382205261185" ignored="false" />
     <file path="/Url.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378598112273" ignored="false" />
     <file path="/TreeRouteStack.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378598288281" ignored="false" />
     <file path="/RedirectCookie.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378604054827" ignored="false" />
@@ -62,23 +92,23 @@
     <file path="/SaveHandler.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379184506396" ignored="false" />
     <file path="/Session.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379177381126" ignored="false" />
     <file path="/RedirectCookieService.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1378687309188" ignored="false" />
-    <file path="/Authentication.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379185770659" ignored="false" />
-    <file path="/auto.logout.js" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379467183306" ignored="false" />
+    <file path="/Authentication.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381103063407" ignored="false" />
+    <file path="/auto.logout.js" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381105283722" ignored="false" />
     <file path="/layout.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379394914064" ignored="false" />
-    <file path="/authenticated.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379395600879" ignored="false" />
+    <file path="/authenticated.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381707433383" ignored="false" />
     <file path="/AclController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379477367630" ignored="false" />
-    <file path="/Acl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379479327308" ignored="false" />
-    <file path="/Resource.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379996284125" ignored="false" />
-    <file path="/Group.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379787780278" ignored="false" />
+    <file path="/Acl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382227571008" ignored="false" />
+    <file path="/Resource.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382231552408" ignored="false" />
+    <file path="/Group.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382234878321" ignored="false" />
     <file path="/UserGroup.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380776313190" ignored="false" />
     <file path="/ResourceInterface.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379562388808" ignored="false" />
-    <file path="/Permission.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379995130276" ignored="false" />
+    <file path="/Permission.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382202740359" ignored="false" />
     <file path="/InvalidPermission.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379739841304" ignored="false" />
     <file path="/UserPermission.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380777069692" ignored="false" />
     <file path="/GroupController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380414115369" ignored="false" />
     <file path="/UserPermissionController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381099800128" ignored="false" />
-    <file path="/ResourceController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379996452397" ignored="false" />
-    <file path="/AbstractResource.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379788900054" ignored="false" />
+    <file path="/ResourceController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382313530612" ignored="false" />
+    <file path="/AbstractResource.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382234807741" ignored="false" />
     <file path="/PermissionDenied.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379805212138" ignored="false" />
     <file path="/User.phtml" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1379903232458" ignored="false" />
     <file path="/ArrayToGroup.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380408748311" ignored="false" />
@@ -98,6 +128,17 @@
     <file path="/EntityNotFound.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1380775309861" ignored="false" />
     <file path="/Entities.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381099084571" ignored="false" />
     <file path="/Entity.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381099629602" ignored="false" />
+    <file path="/AuthorizationController.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381104583065" ignored="false" />
+    <file path="/menu.js" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381108025797" ignored="false" />
+    <file path="/style.css" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1381706856950" ignored="false" />
+    <file path="/README.md" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382201332347" ignored="false" />
+    <file path="/ZendAcl.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382232082439" ignored="false" />
+    <file path="/RecursiveResourceRelationship.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382227314777" ignored="false" />
+    <file path="/AbstractPermission.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382314294289" ignored="false" />
+    <file path="/View.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382313026709" ignored="false" />
+    <file path="/Edit.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382313005949" ignored="false" />
+    <file path="/Create.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382314443305" ignored="false" />
+    <file path="/Delete.php" changelist="f403e37b-a49a-41f5-8481-07346e1fa0c2" time="1382312969234" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,60 +158,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Entity.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Hydrator/Entity.php">
+      <file leaf-file-name="ResourceController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Console/ResourceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="9" selection-start="3173" selection-end="3173" vertical-scroll-proportion="-64.375">
+            <state line="157" column="57" selection-start="5645" selection-end="5645" vertical-scroll-proportion="-24.875">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractPermission.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/AbstractPermission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="5" selection-start="1766" selection-end="1766" vertical-scroll-proportion="-26.75">
               <folding>
-                <element signature="e#176#212#0" expanded="true" />
+                <element signature="e#169#215#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractCrudServiceController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractCrudServiceController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="1" selection-start="1524" selection-end="1524" vertical-scroll-proportion="-12.583333">
-              <folding>
-                <element signature="e#178#214#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserGroupController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/UserGroupController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="42" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-25.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/GroupController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="1" selection-start="606" selection-end="606" vertical-scroll-proportion="0.31746033">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserPermissionController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/UserPermissionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="9" selection-start="1044" selection-end="1044" vertical-scroll-proportion="-21.25">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service.config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Acl/config/service.config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -178,34 +181,80 @@
       <file leaf-file-name="module.config.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Acl/config/module.config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="48.75">
+            <state line="226" column="48" selection-start="9599" selection-end="9599" vertical-scroll-proportion="-16.875">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Doctrine.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php">
+      <file leaf-file-name="Delete.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User/Delete.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="5" selection-start="634" selection-end="815" vertical-scroll-proportion="0.0">
+            <state line="26" column="7" selection-start="499" selection-end="499" vertical-scroll-proportion="-12.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MarshallerAbstract.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Marshal/MarshallerAbstract.php">
+      <file leaf-file-name="AbstractResource.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/AbstractResource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="174" selection-end="308" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="67" column="33" selection-start="1438" selection-end="1438" vertical-scroll-proportion="-0.5">
+              <folding>
+                <element signature="e#168#210#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DoctrineObject.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-module/src/DoctrineModule/Stdlib/Hydrator/DoctrineObject.php">
+      <file leaf-file-name="Group.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="6" selection-start="2123" selection-end="2123" vertical-scroll-proportion="8.75">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.16141732">
+              <folding>
+                <element signature="e#167#193#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="View.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/View.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="7" selection-start="884" selection-end="884" vertical-scroll-proportion="-25.625">
+              <folding>
+                <element signature="e#175#211#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Create.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="45" column="0" selection-start="848" selection-end="962" vertical-scroll-proportion="-24.375">
+              <folding>
+                <element signature="e#175#211#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Edit.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="5" selection-start="962" selection-end="962" vertical-scroll-proportion="-28.125">
+              <folding>
+                <element signature="e#175#211#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Delete.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Delete.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="36" selection-start="211" selection-end="211" vertical-scroll-proportion="-3.125">
               <folding />
             </state>
           </provider>
@@ -229,22 +278,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Marshal/Strategy/DoctrineEntity.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Service/Resource.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Group.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Acl.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/AbstractResource.php" />
+        <option value="$PROJECT_DIR$/module/User/src/User/Resource/User.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Controller/Console/ResourceController.php" />
+        <option value="$PROJECT_DIR$/module/User/src/User/Resource/User/View.php" />
+        <option value="$PROJECT_DIR$/module/User/src/User/Resource/User/Create.php" />
+        <option value="$PROJECT_DIR$/module/User/src/User/Resource/User/Edit.php" />
+        <option value="$PROJECT_DIR$/module/User/src/User/Resource/User/Delete.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/AbstractPermission.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Group/Delete.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Group/Create.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Group/Edit.php" />
+        <option value="$PROJECT_DIR$/module/Acl/src/Resource/Group/View.php" />
         <option value="$PROJECT_DIR$/module/Acl/config/module.config.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Marshal/ArrayToEntity.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Exception/EntityNotFound.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Service/UserGroup.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine/UserGroup.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Service/UserPermission.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine/UserPermission.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DatetimeToString.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Hydrator/EntityAbstract.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Entities.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Entity.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserPermissionController.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DoctrineEntity.php" />
-        <option value="$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractCrudServiceController.php" />
-        <option value="$PROJECT_DIR$/module/Acl/src/Controller/Service/UserGroupController.php" />
       </list>
     </option>
   </component>
@@ -284,7 +333,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -313,7 +361,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -327,33 +375,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine-module" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -367,23 +393,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine-module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DoctrineModule" />
+              <option name="myItemId" value="cfm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,31 +415,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine-module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DoctrineModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stdlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hydrator" />
+              <option name="myItemId" value="auth" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,35 +437,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine" />
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doctrine-module" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="DoctrineModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Stdlib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hydrator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Strategy" />
+              <option name="myItemId" value="cfm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -499,25 +499,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -525,7 +507,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -543,7 +525,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -551,47 +533,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Marshal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Property" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
+              <option name="myItemId" value="Resource" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -609,25 +555,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
+              <option name="myItemId" value="User" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -635,6 +563,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="User" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -657,15 +647,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Marshal" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -687,15 +673,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Hydrator" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -717,19 +695,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
+              <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Hydrator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Strategy" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -756,70 +730,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Exception" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rentalmgr" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="module" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -860,6 +770,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="group" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="acl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -908,6 +878,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Group" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rentalmgr" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Acl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Exception" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1019,7 +1049,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Service" />
+              <option name="myItemId" value="Console" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1079,6 +1109,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1092,18 +1123,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/module/User/src/User/Resource/User" />
       <recent name="$PROJECT_DIR$/module/Application/src/Application/Hydrator" />
       <recent name="$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy" />
       <recent name="$PROJECT_DIR$/module/Acl" />
       <recent name="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine" />
-      <recent name="$PROJECT_DIR$/module/Acl/src/Dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/js/cfm" />
       <recent name="$PROJECT_DIR$/module/Acl" />
       <recent name="$PROJECT_DIR$/module/Acl/src" />
       <recent name="$PROJECT_DIR$/module/Acl/src/Entity" />
       <recent name="$PROJECT_DIR$/module/Acl/src/Dao/Doctrine" />
-      <recent name="$PROJECT_DIR$/public/css" />
     </key>
   </component>
   <component name="RunManager">
@@ -1131,9 +1162,10 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3267163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979952" sideWeight="0.67025685" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26663995" sideWeight="0.6727423" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27145147" sideWeight="0.6732837" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -1142,7 +1174,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32725766" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1214,107 +1245,133 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="6" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/module/Acl/src/Entity/UserPermission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Acl/src/Entity/Permission.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Marshal/MarshallerAbstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="174" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Dao/Doctrine.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="5" selection-start="634" selection-end="815" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Acl/config/service.config.php">
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Service/UserPermission.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Service/Permission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="51.875">
+          <folding>
+            <element signature="e#407#456#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="1" selection-start="269" selection-end="269" vertical-scroll-proportion="-3.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User/View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="16" selection-start="480" selection-end="480" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User/Create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="17" selection-start="483" selection-end="483" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User/Edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="17" selection-start="481" selection-end="481" vertical-scroll-proportion="-10.625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/User/src/User/Resource/User/Delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="7" selection-start="499" selection-end="499" vertical-scroll-proportion="-12.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Console/ResourceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="57" selection-start="5645" selection-end="5645" vertical-scroll-proportion="-24.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Delete.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="36" selection-start="211" selection-end="211" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="848" selection-end="962" vertical-scroll-proportion="-24.375">
+          <folding>
+            <element signature="e#175#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/Edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="5" selection-start="962" selection-end="962" vertical-scroll-proportion="-28.125">
+          <folding>
+            <element signature="e#175#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group/View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="7" selection-start="884" selection-end="884" vertical-scroll-proportion="-25.625">
+          <folding>
+            <element signature="e#175#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/AbstractPermission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="5" selection-start="1766" selection-end="1766" vertical-scroll-proportion="-26.75">
+          <folding>
+            <element signature="e#169#215#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/module/Acl/config/module.config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="48.75">
+        <state line="226" column="48" selection-start="9599" selection-end="9599" vertical-scroll-proportion="-16.875">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/UserPermissionController.php">
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/AbstractResource.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="9" selection-start="1044" selection-end="1044" vertical-scroll-proportion="-21.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Hydrator/Entity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="9" selection-start="3173" selection-end="3173" vertical-scroll-proportion="-64.375">
+        <state line="67" column="33" selection-start="1438" selection-end="1438" vertical-scroll-proportion="-0.5">
           <folding>
-            <element signature="e#176#212#0" expanded="true" />
+            <element signature="e#168#210#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DatetimeToString.php">
+    <entry file="file://$PROJECT_DIR$/module/Acl/src/Resource/Group.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="1" selection-start="306" selection-end="306" vertical-scroll-proportion="0.105820104">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Hydrator/Strategy/DoctrineEntity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="20" selection-start="659" selection-end="659" vertical-scroll-proportion="0.29818496">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.16141732">
           <folding>
-            <element signature="e#185#237#0" expanded="true" />
+            <element signature="e#167#193#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/doctrine/doctrine-module/src/DoctrineModule/Stdlib/Hydrator/DoctrineObject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="6" selection-start="2123" selection-end="2123" vertical-scroll-proportion="8.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Application/src/Application/Controller/AbstractCrudServiceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="1" selection-start="1524" selection-end="1524" vertical-scroll-proportion="-12.583333">
-          <folding>
-            <element signature="e#178#214#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/UserGroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="42" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-25.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/module/Acl/src/Controller/Service/GroupController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="1" selection-start="606" selection-end="606" vertical-scroll-proportion="0.31746033">
-          <folding />
         </state>
       </provider>
     </entry>

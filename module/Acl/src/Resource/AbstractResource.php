@@ -10,41 +10,33 @@
 namespace Acl\Resource;
 
 use Acl\Entity\Resource as ResourceEntity;
-use Acl\Entity\Permission;
 use Acl\Exception\InvalidPermission;
+use Acl\Resource\AbstractPermission;
+use Application\ServiceLocator;
+use Zend\Permissions\Acl\Resource\ResourceInterface;
 
-abstract class AbstractResource {
+abstract class AbstractResource implements ResourceInterface
+{
 
     /**
-     * @var ResourceEntity
+     * @var ResourceEntity[]
      */
-    private $entity;
+    private static $entities;
 
     /**
-     * @var Permission[]
+     * @var AbstractPermission[]
      */
     private $permissions;
 
-    /**
-     * @param $id
-     * @param $name
-     * @param $description
-     * @return $this
-     */
-    protected function addPermission($id, $name, $description)
+    protected function addPermission(AbstractPermission $permission)
     {
-        $permission = new Permission();
-        $permission
-            ->setId($id)
-            ->setName($name)
-            ->setDescription($description)
-            ->setResource($this->getEntity());
-        $this->permissions[$name] = $permission;
+        $this->permissions[] = $permission;
         return $this;
     }
 
     public function __construct()
     {
+        $this->permissions = array();
         $this->definePermissions();
     }
 
@@ -68,25 +60,12 @@ abstract class AbstractResource {
     public abstract function getDescription();
 
     /**
-     * @return Permission[]
+     *
      */
     public abstract function definePermissions();
 
     /**
-     * @param $name
-     * @return Permission
-     * @throws \Acl\Exception\InvalidPermission
-     */
-    public function getPermission($name)
-    {
-        if(!isset($this->permissions[$name])){
-            throw new InvalidPermission("Permission [$name] for resource [{$this->getName()}] does not exist.");
-        }
-        return $this->permissions[$name];
-    }
-
-    /**
-     * @return \Acl\Entity\Permission[]
+     * @return AbstractPermission[]
      */
     public function getPermissions()
     {
@@ -108,13 +87,33 @@ abstract class AbstractResource {
      */
     public function getEntity()
     {
-        if(empty($this->entity)){
-            $this->entity = new ResourceEntity();
-            $this->entity->setId($this->getId());
-            $this->entity->setName($this->getName());
-            $this->entity->setDescription($this->getDescription());
+        $id = $this->getId();
+        if(empty(self::$entities[$id])){
+            $entity = new ResourceEntity();
+            $entity->setId($this->getId());
+            $entity->setName($this->getName());
+            $entity->setDescription($this->getDescription());
+            $entity->setClass(get_called_class());
+            self::$entities[$id] = $entity;
         }
-        return $this->entity;
+        return self::$entities[$id];
+    }
+
+    /**
+     * Returns the string identifier of the Resource
+     *
+     * @return string
+     */
+    public function getResourceId(){
+        return 'resource:'.$this->getId();
+    }
+
+    /**
+     * Returns the parent resource
+     * @return AbstractResource|null
+     */
+    public function getParent(){
+        return null;
     }
 
 }

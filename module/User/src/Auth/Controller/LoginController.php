@@ -106,4 +106,5 @@ class LoginController extends AbstractController
         $this->flashMessenger()->addMessage($logoutMessage);
         return $this->redirect()->toRoute('auth-login',array('controller'=>'login'));
     }
+
 }

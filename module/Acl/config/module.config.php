@@ -202,6 +202,47 @@ return array(
 
     // acl resources
     'acl-resource' => array(
-        'Acl\Resource\Group'
-    )
+        'Acl\Resource\Group' => array(
+            'Acl\Resource\Group\View',
+            'Acl\Resource\Group\Create'
+        ),
+        'Acl\Resource\Acl'
+    ),
+
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Home',
+                'route' => 'home',
+            ),
+            array(
+                'label' => 'Acl',
+                'route' => 'acl',
+                'resource' => new Resource\ACL,
+                'pages' => array(
+                    array(
+                        'label' => 'Group',
+                        'route' => 'acl/group',
+                        'controller' => 'acl/group',
+                        'action'     => 'index',
+                        'resource' => new Resource\Group,
+                    ),
+                    array(
+                        'label' => 'User Group',
+                        'route' => 'acl/user-group',
+                        'controller' => 'acl/user-group',
+                        'action'     => 'index',
+                        'resource' => new Resource\Group,
+                    ),
+                    array(
+                        'label' => 'User Permission',
+                        'route' => 'acl/user-permission',
+                        'controller' => 'acl/user-permission',
+                        'action'     => 'index',
+                        'resource' => new Resource\Group\View,
+                    ),
+                ),
+            ),
+        ),
+    ),
 );

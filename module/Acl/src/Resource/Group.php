@@ -9,15 +9,10 @@
 namespace Acl\Resource;
 
 use Acl\Entity\Permission;
+use Acl\Resource\Acl;
 
 class Group extends AbstractResource
 {
-
-    const RESOURCE_ID = 10;
-    const VIEW = 10;
-    const EDIT = 11;
-    const CREATE = 12;
-    const DELETE = 13;
 
     /**
      * Return the integer id for this resource.  This should be a unique number across all resources you will
@@ -26,7 +21,7 @@ class Group extends AbstractResource
      */
     public function getId()
     {
-        return self::RESOURCE_ID;
+        return 10;
     }
 
     /**
@@ -53,25 +48,17 @@ class Group extends AbstractResource
     public function definePermissions()
     {
         $this
-            ->addPermission(
-                self::VIEW,
-                'view',
-                'View available access control groups.'
-            )
-            ->addPermission(
-                self::EDIT,
-                'edit',
-                'Edit available access control groups.'
-            )
-            ->addPermission(
-                self::CREATE,
-                'create',
-                'Create new access control groups.'
-            )
-            ->addPermission(
-                self::DELETE,
-                'delete',
-                'Delete available access control groups.'
-            );
+            ->addPermission(new Group\View)
+            ->addPermission(new Group\Edit)
+            ->addPermission(new Group\Create)
+            ->addPermission(new Group\Delete);
+    }
+
+    /**
+     * @return Acl
+     */
+    public function getParent()
+    {
+        return new Acl();
     }
 }

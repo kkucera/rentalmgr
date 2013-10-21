@@ -49,6 +49,30 @@ auth.auto.logout = function() {
         setTimeout(warn, timeOutMilli-warningMilli);
     };
 
+    this.touchAuthSession = function(){
+        var self = this;
+        $.ajax(
+            {
+                'url':'/authorization/service/touch.json',
+                'success': function(response){
+                    if(response.success == true){
+                        self.start();
+                    }else{
+                        alert('Error occurred updating authorization session.  Received unexpected response.');
+                    }
+                },
+                'error': function(response){
+                    var message = '';
+                    if(typeof(response.responseJSON) === 'object' && typeof(response.responseJSON.error == 'object')){
+                        message = response.responseJSON.error.exception.exception+"\n";
+                        message+= response.responseJSON.error.message;
+                    }
+                    alert('Error occurred updating authorization session.\n'+message);
+                }
+            }
+        );
+    };
+
     this.init = function(){
         var self = this;
         $warnDialog = $('<div>You will be logged out in: <span id="auto-logout-countDown"></span> seconds</div>');
@@ -63,7 +87,7 @@ auth.auto.logout = function() {
             buttons: {
                 "Continue Working": function() {
                     clearTimeout(countDownTimer);
-                    self.start();
+                    self.touchAuthSession();
                     $( this ).dialog( "close" );
                 }
             }

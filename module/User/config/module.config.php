@@ -13,6 +13,7 @@ return array(
         'invokables' => array(
             'Auth\Controller\Login' => 'Auth\Controller\LoginController',
             'User\Controller\Service\User' => 'User\Controller\Service\UserController',
+            'Auth\Controller\Service\Authorization' => 'Auth\Controller\Service\AuthorizationController'
         ),
     ),
     'router' => array(
@@ -52,6 +53,19 @@ return array(
                     'defaults' => array(
                         'controller' => 'User\Controller\Service\User',
                         'action'     => 'index',
+                    ),
+                ),
+            ),
+            'authorization-service' => array(
+                'type'    => 'segment',
+                'options' => array(
+                    'route'    => '/authorization/service/:action[.:format][/:id]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Auth\Controller\Service\Authorization',
                     ),
                 ),
             ),

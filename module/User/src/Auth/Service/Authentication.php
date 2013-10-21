@@ -14,6 +14,7 @@ use Application\Logger\Factory as LoggerFactory;
 use Application\ServiceLocator;
 use Auth\Entity\Authentication as AuthenticationEntity;
 use Auth\Exception\LoginFailed;
+use DateTime;
 use Logger;
 use User\Entity\User;
 use User\Service as UserService;
@@ -183,7 +184,7 @@ class Authentication extends CrudServiceAbstract
             /** @var AuthenticationEntity $auth */
             $auth = $this->load($authId);
             if($auth){
-                if(($auth->getLastModified()->getTimestamp() + $this->getMaxLifetime()) > time()) {
+                if(($auth->getLastAccessed()->getTimestamp() + $this->getMaxLifetime()) > time()) {
                     self::$authenticationEntity = $auth;
                     return $auth;
                 } else {
@@ -202,6 +203,7 @@ class Authentication extends CrudServiceAbstract
     {
         $auth = $this->getAuthentication();
         if($auth){
+            $this->touchLastAccessed($auth);
             return $this->getUserService()->load($auth->getUserId());
         }
         return null;
@@ -218,6 +220,17 @@ class Authentication extends CrudServiceAbstract
         }
         $this->expireAuthCookie();
         return true;
+    }
+
+    /**
+     * Update the session lastAccessed date/time to the current time
+     * @param null $authEntity
+     */
+    public function touchLastAccessed($authEntity = null)
+    {
+        $authEntity = $authEntity ?: $this->getAuthentication();
+        $authEntity->setLastAccessed(new DateTime());
+        $this->save($authEntity);
     }
 
     /**

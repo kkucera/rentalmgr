@@ -72,6 +72,20 @@ abstract class DoctrineCrud extends Doctrine
     }
 
     /**
+     * Truncates the table
+     * @return mixed
+     */
+    public function deleteAll()
+    {
+        $em = $this->getEntityManager();
+        $conn = $this->getEntityManager()->getConnection();
+        $conn->exec('SET foreign_key_checks = 0');
+        $result = $em->createQuery('DELETE FROM '.$this->getEntityName())->execute();
+        $conn->exec('SET foreign_key_checks = 1');
+        return $result;
+    }
+
+    /**
      * Loads a model based on the supplied model criteria.
      * @param int $id
      * @return object

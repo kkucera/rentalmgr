@@ -1,15 +1,29 @@
-ZendSkeletonApplication
+RentalMgr
 =======================
 
 Introduction
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+This is a project I'm using just to educate myself on zend framework 2.
 
 
 Installation
 ------------
+Database - The database interface is through Doctrine.  The following commands can be used to initialize the database.
+
+$ php doctrine orm:schema-tool:drop
+$ php doctrine orm:schema-tool:create
+
+If you just want to update the schema run this
+$ php doctrine orm:schema-tool:update --force
+
+
+Initialize the resources
+php public/index.php acl register resources
+
+
+
+
+
 
 Using Composer (recommended)
 ----------------------------
@@ -39,14 +53,3 @@ then pass it to `tar`:
 
 You would then invoke `composer` to install dependencies per the previous
 example.
-
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
-
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
-
-Virtual Host
-------------
-Afterwards, set up a virtual host to point to the public/ directory of the
-project and you should be ready to go!

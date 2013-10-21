@@ -23,6 +23,7 @@ return array(
         'Acl\Service\Resource' => new Service\Resource,
         'Acl\Service\UserPermission' => new Service\UserPermission,
         'Acl\Service\UserGroup' => new Service\UserGroup,
-        'Acl\Service\Group' => new Service\Group
+        'Acl\Service\Group' => new Service\Group,
+        'Acl\Service\ZendAcl' => new Service\ZendAcl,
     )
 );
