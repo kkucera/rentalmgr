@@ -1,0 +1,18 @@
+<?php
+/**
+ * @category Kevin Kucera
+ * @package rentalmgr
+ * @copyright Copyright (c) 2013 Kevin Kucera
+ * @user: kevin
+ * @date: 10/29/13
+ */
+
+$this->headScript()
+    ->appendFile($this->basePath() . '/js/acl/acl.user.resource.search.js')
+    ->appendFile($this->basePath() . '/js/user/user.search.js')
+?>
+<h1>User ACL Resources</h1>
+<div>Enter the name or email of the user you wish to adjust the ACL for.</div>
+<div>Press enter or click the search icon to start the search.</div>
+<div id="user-search"></div>
+<div id="user-search-results"></div>

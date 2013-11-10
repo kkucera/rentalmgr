@@ -9,36 +9,18 @@
 
 namespace Acl\Service;
 
-
 use Application\CrudServiceAbstract;
+use Acl\Dao\Doctrine\UserGroup as UserGroupDao;
 
 class UserGroup extends CrudServiceAbstract
 {
 
     /**
-     * Absolute class name of Dao to use for crud operations
-     * @return string
-     */
-    protected function getDaoClassName()
-    {
-        return 'Acl\Dao\Doctrine\UserGroup';
-    }
-
-    /**
-     * @return \Acl\Dao\Doctrine\UserGroup
+     * @return UserGroupDao
      */
     public function getDao()
     {
-        return parent::getDao();
-    }
-
-    /**
-     * @param $userId
-     * @return \Acl\Entity\Permission[]
-     */
-    public function getPermissionsByUserId($userId)
-    {
-        return $this->getDao()->getPermissionsByUserId($userId);
+        return $this->getInstanceDao('Acl\Dao\Doctrine\UserGroup');
     }
 
     /**
@@ -48,6 +30,15 @@ class UserGroup extends CrudServiceAbstract
     public function getGroupsByUserId($userId)
     {
         return $this->getDao()->getListByUserId($userId);
+    }
+
+    /**
+     * @param $userId
+     * @return \Acl\Entity\UserGroup[]
+     */
+    public function getGroupsWithResourcesByUserId($userId)
+    {
+        return $this->getDao()->getGroupsWithResourcesByUserId($userId);
     }
 
 }

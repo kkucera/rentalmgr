@@ -11,10 +11,10 @@ namespace Acl\Dao\Doctrine;
 
 
 use Application\Dao\DoctrineCrud;
-use Acl\Entity\Permission as PermissionEntity;
+use Acl\Entity\Resource as ResourceEntity;
 use Doctrine\ORM\Query\ResultSetMapping;
 
-class UserPermission extends DoctrineCrud
+class UserResource extends DoctrineCrud
 {
 
     /**
@@ -23,34 +23,39 @@ class UserPermission extends DoctrineCrud
      */
     public function getEntityName()
     {
-        return 'Acl\Entity\UserPermission';
+        return 'Acl\Entity\UserResource';
     }
 
     /**
      * @param $userId
-     * @return PermissionEntity[]
+     * @return ResourceEntity[]
      */
-    public function getPermissionsByUserId($userId)
+    public function getUserResourcesByUserId($userId)
     {
         return $this->getRepository()->findBy(array('userId'=>$userId));
     }
 
     /**
      * @param $userId
-     * @return int[]
+     * @return string[]
      */
-    public function getPermissionIdsForUserId($userId)
+    public function getResourceIdsByUserId($userId)
     {
         $rsm = new ResultSetMapping;
-        $rsm->addScalarResult('permissionId', 'id');
+        $rsm->addScalarResult('resourceId', 'resourceId');
         $query = $this->getEntityManager()->createNativeQuery('
-            SELECT permissionId FROM acl_user_permission WHERE userId = :userId ORDER BY permissionId
+            SELECT resourceId FROM acl_user_resource WHERE userId = :userId
+            UNION
+            SELECT resourceId FROM acl_group_resource
+              INNER JOIN acl_user_group ON acl_user_group.groupId = acl_group_resource.groupId
+                AND acl_user_group.userId = :userId
         ',$rsm);
         $results = $query->execute(array('userId'=>$userId));
-        $permissionIds = array();
+        $resourceIds = array();
         foreach($results as $row){
-            $permissionIds[] = $row['id'];
+            $resourceIds[] = $row['resourceId'];
         }
-        return $permissionIds;
+        return $resourceIds;
     }
+
 }

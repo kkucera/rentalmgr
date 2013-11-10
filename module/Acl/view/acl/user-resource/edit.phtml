@@ -1,0 +1,43 @@
+<?php
+/**
+ * @category Kevin Kucera
+ * @package rentalmgr
+ * @copyright Copyright (c) 2013 Kevin Kucera
+ * @user: kevin
+ * @date: 10/29/13
+ */
+
+$this->headScript()
+    ->appendFile($this->basePath() . '/js/acl/acl.resource.selection.js')
+    ->appendFile($this->basePath() . '/js/acl/acl.resource.selection.group.filter.js')
+    ->prependScript(
+        'var selectedResources = '.json_encode($this->selectedResources).';'.PHP_EOL.
+        'var groups = '.json_encode($this->groups).';'.PHP_EOL
+    );
+?>
+<h1>Edit User ACL Resources</h1>
+<div id="base-inline-message"></div>
+<?php
+if($this->groups){
+    ?>
+    <div>
+        <?php echo $this->name; ?> is assigned to the following ACL Groups which include resources that can not
+        be disabled from this page.  If you need to remove resources granted by a group you must remove the user
+        from the Group.
+    </div>
+    <div>Groups:
+        <ul>
+        <?php foreach($this->groups as $group){
+            echo '<li>'.$group['name'].'</li>';
+        }?>
+        </ul>
+    </div>
+<?php
+}
+?>
+<div>Resources <?php echo $this->name." ($this->email)"; ?> has access to.</div>
+<form>
+    <div id="resource-selections"></div>
+    <input type="hidden" name="userId" value="<?php echo $this->userId; ?>">
+    <div id="resource-selections-submit" class="base-submit">Submit</div>
+</form>

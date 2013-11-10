@@ -9,115 +9,51 @@
 
 namespace User\Controller\Service;
 
-use Application\Controller\AbstractServiceController;
-use InvalidArgumentException;
+use Application\Controller\AbstractCrudServiceController;
+use User\Dto\SearchCriteria;
 use User\Entity\User;
-use User\Marshal\ArrayToUser;
-use User\Marshal\UsersToArray;
-use User\Marshal\UserToArray;
-use User\Service;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
+use User\Service as UserService;
 use Zend\View\Model\JsonModel;
 
-class UserController extends AbstractServiceController
+class UserController extends AbstractCrudServiceController
 {
-
     /**
-     * @return User
+     * @return Object
      */
-    protected function getUser()
+    protected function getEntity()
     {
         return new User();
     }
 
     /**
-     * @return ArrayToUser
+     * @return UserService
      */
-    protected function getArrayToUserMarshaller()
+    protected function getEntityService()
     {
-        return new ArrayToUser();
+        return $this->getServiceLocator()->get('User\Service');
     }
 
     /**
-     * @return UserToArray
+     * @return JsonModel
      */
-    protected function getUserToArrayMarshaller()
+    public function searchAction()
     {
-        return new UserToArray();
-    }
+        $data = $this->params()->fromPost();
 
-    /**
-     * @return UsersToArray
-     */
-    protected function getUsersToArrayMarshaller()
-    {
-        return new UsersToArray();
-    }
+        $searchType = $data['type']?: 'name';
+        $searchValue = $data['value']?: '';
 
-    /**
-     * @return \User\Service
-     */
-    protected function getUserService()
-    {
-        return new Service();
-    }
-
-    public function indexAction()
-    {
-        throw new ServiceNotFoundException('There is no default property service.');
-    }
-
-    public function createAction()
-    {
-        $data = $_POST;
-
-        $marshaller = $this->getArrayToPropertyMarshaller();
-        $property = $marshaller->marshal($data);
-
-        $service = $this->getPropertyService();
-        $property = $service->create($property);
-
-        $marshaller = $this->getPropertyToArrayMarshaller();
-
-        return new JsonModel($marshaller->marshal($property));
-    }
-
-    public function deleteAction()
-    {
-        $id = (int) $this->params()->fromRoute('id', 0);
-        if(empty($id)){
-            throw new InvalidArgumentException('Missing required parameter [id].');
+        $searchCriteria = new SearchCriteria();
+        if($searchType == 'email'){
+            $searchCriteria->setEmail($searchValue);
+        }else{
+            $searchCriteria->setName($searchValue);
         }
 
-        $service = $this->getPropertyService();
-        $property = $service->delete($id);
-
+        $results = $this->getEntityService()->searchUsers($searchCriteria);
+        $hydrator = $this->getEntityHydrator();
         return new JsonModel(array(
-            'id' => $id,
-            'success' => true,
+            'users'=>$hydrator->extractAll($results)
         ));
-    }
-
-    public function getAction()
-    {
-        $id = (int) $this->params()->fromRoute('id', 0);
-        if(empty($id)){
-            throw new InvalidArgumentException('Missing required parameter [id].');
-        }
-
-        $service = $this->getPropertyService();
-        $property = $service->load($id);
-
-        $marshaller = $this->getPropertyToArrayMarshaller();
-
-        return new JsonModel($marshaller->marshal($property));
-    }
-
-    public function getlistAction()
-    {
-        $service = $this->getPropertyService();
-        $properties = $service->getList();
-        $marshaller = $this->getPropertiesToArrayMarshaller();
-        return new JsonModel($marshaller->marshal($properties));
     }
 }

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headTitle('Rental Mgr') ?>
 
     <?php echo $this->headMeta()
         ->appendName('viewport', 'width=device-width, initial-scale=1.0')
@@ -12,22 +12,27 @@
 
     <!-- Le styles -->
     <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-        ->appendStylesheet($this->basePath() . '/css/bootstrap.css')
-        ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
-        ->appendStylesheet($this->basePath() . '/css/style.css')
-        ->appendStylesheet($this->basePath() . '/css/overcast/jquery-ui-1.10.3.custom.min.css')
-        ->appendStylesheet($this->basePath() . '/css/cfm/cfm.menu.css')
+        ->prependStylesheet($this->basePath() . '/css/style.css')
+        ->prependStylesheet($this->basePath() . '/css/base/base.css')
+        ->prependStylesheet($this->basePath() . '/css/cfm/cfm.menu.css')
+        ->prependStylesheet($this->basePath() . '/css/overcast/jquery-ui-1.10.3.custom.min.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.css')
     ; ?>
 
 
     <!-- Scripts -->
     <?php echo $this->headScript()
-        ->appendFile($this->basePath() . '/js/jquery/jquery.min.js')
-        ->appendFile($this->basePath() . '/js/jquery/jquery-ui-1.10.3.custom.js')
-        ->appendFile($this->basePath() . '/js/auth/auto.logout.js')
-        ->appendFile($this->basePath() . '/js/cfm/cfm.menu.js')
-
+        ->prependFile($this->basePath() . '/js/base/base.js')
+        ->prependFile($this->basePath() . '/js/cfm/cfm.menu.js')
+        ->prependFile($this->basePath() . '/js/auth/auto.logout.js')
+        ->prependFile($this->basePath() . '/js/jquery/jquery-ui-1.10.3.custom.js')
+        ->prependFile($this->basePath() . '/js/jquery/jquery.min.js')
+        ->prependScript(
+            'var basePath = "'.$this->serverUrl().'";'
+        )
     ; ?>
+
 </head>
 <body>
 
@@ -42,15 +47,16 @@
                 ->setUlClass('cfm-menu')
                 ->render(); ?>
             </div>
-            <div>
-                <a href="<?php echo $this->url('auth-logout') ?>"><?php echo $this->userName; ?></a>
+
+            <div id="user-info">
+                <div><?php echo $this->userName; ?></div>
+                <div><a href="<?php echo $this->url('auth-logout') ?>">logout</a></div>
             </div>
         </div>
 
     </div>
 </nav>
 <div class="container">
-    Authenticated
     <?php echo $this->content; ?>
     <hr>
     <footer>

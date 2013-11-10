@@ -10,6 +10,8 @@
 namespace Application;
 
 use Application\Dao\DoctrineCrud;
+use Application\Exception\InvalidDaoClass;
+use Application\Hydrator\Entity as EntityHydrator;
 use Application\ServiceLocator;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
@@ -28,10 +30,25 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     private $serviceLocator;
 
     /**
-     * Absolute class name of Dao to use for crud operations
-     * @return string
+     * @return DoctrineCrud
      */
-    protected abstract function getDaoClassName();
+    public abstract function getDao();
+
+    /**
+     * @return Object
+     */
+    public function getEntity(){
+        $entityClassName = $this->getDao()->getEntityName();
+        return new $entityClassName;
+    }
+
+    /**
+     * @return EntityHydrator
+     */
+    public function getEntityHydrator()
+    {
+        return new EntityHydrator($this->getDao()->getEntityName());
+    }
 
     /**
      * @return ServiceLocatorInterface
@@ -61,13 +78,17 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     }
 
     /**
+     * @param $className
      * @return DoctrineCrud
+     * @throws Exception\InvalidDaoClass
      */
-    public function getDao()
+    protected function getInstanceDao($className)
     {
         if(empty($this->dao)){
-            $daoClass = $this->getDaoClassName();
-            $this->dao = new $daoClass();
+            if(!class_exists($className)){
+                throw new InvalidDaoClass('Dao requested is invalid ['.$className.']');
+            }
+            $this->dao = new $className();
         }
         return $this->dao;
     }
@@ -92,8 +113,16 @@ abstract class CrudServiceAbstract implements ServiceLocatorAwareInterface
     public function delete($id)
     {
         $entity = $this->getDao()->load($id);
-        $this->getDao()->delete($entity);
+        $this->deleteEntity($entity);
         return $this;
+    }
+
+    /**
+     * @param $entity
+     */
+    public function deleteEntity($entity)
+    {
+        $this->getDao()->delete($entity);
     }
 
     /**

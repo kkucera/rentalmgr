@@ -12,16 +12,18 @@ namespace User;
 use Application\ServiceLocator;
 use Application\CrudServiceAbstract;
 use User\Entity\User as UserModel;
+use User\Dto\SearchCriteria;
+use User\Dao\Doctrine as UserDao;
 
 class Service extends CrudServiceAbstract
 {
 
     /**
-     * @return string
+     * @return UserDao
      */
-    protected function getDaoClassName()
+    public function getDao()
     {
-        return 'User\Dao\Doctrine';
+        return $this->getInstanceDao('User\Dao\Doctrine');
     }
 
     /**
@@ -40,5 +42,14 @@ class Service extends CrudServiceAbstract
     public function encryptPassword($password)
     {
         return $password;
+    }
+
+    /**
+     * @param SearchCriteria $searchCriteria
+     * @return null|UserModel[]
+     */
+    public function searchUsers(SearchCriteria $searchCriteria)
+    {
+        return $this->getDao()->search($searchCriteria);
     }
 }

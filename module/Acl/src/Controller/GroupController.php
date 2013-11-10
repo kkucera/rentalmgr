@@ -17,7 +17,7 @@ class GroupController extends AuthenticatedController
 
     public function indexAction()
     {
-        $this->userHasPermission(GroupResource::VIEW);
+        $this->requireResource('Acl\Resource\Group\View');
     }
 
 }

@@ -10,6 +10,7 @@
 namespace User\Dao;
 
 use Application\Dao\DoctrineCrud as DoctrineCrud;
+use User\Dto\SearchCriteria;
 use User\Entity\User as UserModel;
 
 class Doctrine extends DoctrineCrud
@@ -31,6 +32,34 @@ class Doctrine extends DoctrineCrud
     public function getUserByEmail($username)
     {
         return $this->getRepository()->findOneBy(array('email'=>$username));
+    }
+
+    /**
+     * @param SearchCriteria $searchCriteria
+     * @return UserModel[]|null
+     */
+    public function search(SearchCriteria $searchCriteria)
+    {
+        $where = array();
+        $params = array();
+        if($searchCriteria->getName()){
+            $where[] = 'User.name LIKE :searchName';
+            $params['searchName'] = '%'.$searchCriteria->getName().'%';
+        }
+        if($searchCriteria->getEmail()){
+            $where[] = 'User.email LIKE :searchEmail';
+            $params['searchEmail'] = '%'.$searchCriteria->getEmail().'%';
+        }
+        $dql = '
+            SELECT User FROM
+            '.$this->getEntityName().' as User
+        ';
+        if(!empty($where)){
+            $dql.='WHERE '.implode(' AND ',$where);
+        }
+
+        $query = $this->getEntityManager()->createQuery($dql);
+        return $query->execute($params);
     }
 
 }

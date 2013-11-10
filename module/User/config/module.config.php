@@ -11,10 +11,20 @@ namespace User;
 return array(
     'controllers' => array(
         'invokables' => array(
-            'Auth\Controller\Login' => 'Auth\Controller\LoginController',
-            'User\Controller\Service\User' => 'User\Controller\Service\UserController',
-            'Auth\Controller\Service\Authorization' => 'Auth\Controller\Service\AuthorizationController'
+            'auth-login-controller' => 'Auth\Controller\LoginController',
+            'auth-login-service-controller' => 'Auth\Controller\Service\AuthorizationController',
+
+            'user-controller' => 'User\Controller\UserController',
+            'user-service-controller' => 'User\Controller\Service\UserController',
         ),
+        'initializers' => array(
+            'Auth\Initializer\RequireAuthentication'
+        )
+    ),
+    'service_manager' => array(
+        'invokables' => array(
+            'User\Service' => 'User\Service'
+        )
     ),
     'router' => array(
         'routes' => array(
@@ -27,7 +37,7 @@ return array(
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Login',
+                        'controller' => 'auth-login-controller',
                         'action'     => 'index',
                     ),
                 ),
@@ -37,22 +47,8 @@ return array(
                 'options' => array(
                     'route'    => '/logout[/]',
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Login',
+                        'controller' => 'auth-login-controller',
                         'action'     => 'logout',
-                    ),
-                ),
-            ),
-            'user-service' => array(
-                'type'    => 'segment',
-                'options' => array(
-                    'route'    => '/service/user/:action[.:format][/:id]',
-                    'constraints' => array(
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id'     => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller' => 'User\Controller\Service\User',
-                        'action'     => 'index',
                     ),
                 ),
             ),
@@ -65,7 +61,46 @@ return array(
                         'id'     => '[0-9]+',
                     ),
                     'defaults' => array(
-                        'controller' => 'Auth\Controller\Service\Authorization',
+                        'controller' => 'auth-login-service-controller',
+                    ),
+                ),
+            ),
+            'user' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/user',
+                    'defaults' => array(
+                        'controller' => 'user-controller',
+                        'action'     => 'index',
+                    )
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'action' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/:action[/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'user-controller',
+                            ),
+                        ),
+                    ),
+                    'service' => array(
+                        'type'    => 'segment',
+                        'options' => array(
+                            'route'    => '/service/:action[.:format][/:id]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'     => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'user-service-controller',
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -107,6 +142,44 @@ return array(
 
     // acl resources
     'acl-resource' => array(
-        'User\Resource\User'
-    )
+        'User\Resource\User'=>array(
+            'User\Resource\User\View',
+            'User\Resource\User\Create',
+            'User\Resource\User\Edit',
+            'User\Resource\User\Delete'
+        )
+    ),
+
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'User',
+                'route' => 'user',
+                'resource' => new Resource\User,
+                'order' => 200,
+                'pages' => array(
+                    array(
+                        'label' => 'View',
+                        'uri' => '/user/list',
+                        'resource' => new Resource\User\View,
+                    ),
+                    array(
+                        'label' => 'Create',
+                        'uri' => '/user/add',
+                        'resource' => new Resource\User\Create,
+                    ),
+                    array(
+                        'label' => 'Edit',
+                        'uri' => '/user/edit',
+                        //'resource' => new Resource\User\Edit,
+                    ),
+                    array(
+                        'label' => 'Delete',
+                        'uri' => '/user/delete',
+                        'resource' => new Resource\User\Delete,
+                    ),
+                ),
+            ),
+        ),
+    ),
 );

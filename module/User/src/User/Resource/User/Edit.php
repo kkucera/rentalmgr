@@ -9,20 +9,10 @@
 
 namespace User\Resource\User;
 
-use Acl\Resource\AbstractPermission;
+use Acl\Resource\AbstractResource;
 
-class Edit extends AbstractPermission
+class Edit extends AbstractResource
 {
-
-    /**
-     * Return the integer id for this resource.  This should be a unique number across all resources you will
-     * use in the application.
-     * @return int
-     */
-    public function getId()
-    {
-        return 22;
-    }
 
     /**
      * Return the name of this resource

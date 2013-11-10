@@ -56,4 +56,22 @@ class UserGroup extends DoctrineCrud
         return $query->execute(array('userId'=>$userId));
     }
 
+    /**
+     * @param $userId
+     * @return UserGroupEntity[]
+     */
+    public function getGroupsWithResourcesByUserId($userId)
+    {
+        $qb = $this->getEntityManager()->createQueryBuilder();
+        $qb->select('ug, g, r')
+            ->from('Acl\Entity\UserGroup', 'ug')
+            ->innerJoin('ug.group','g')
+            ->innerJoin('g.resources','r')
+            ->where('ug.userId = :userId')
+            ->orderBy('g.name');
+
+        $query = $qb->getQuery();
+        return $query->execute(array('userId'=>$userId));
+    }
+
 }

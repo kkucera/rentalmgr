@@ -13,39 +13,21 @@
 
 namespace Acl\Service;
 
-use Acl\Service\Permission as PermissionService;
-use Acl\Service\Resource as ResourceService;
+use Acl\Service\Interfaces\UserResourceServiceAwareInterface;
+use Acl\Service\UserResource as UserResourceService;
 use Application\ServiceLocator;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Resource\GenericResource;
 use Zend\Permissions\Acl\Role\GenericRole;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ZendAcl extends Acl
+class ZendAcl extends Acl implements UserResourceServiceAwareInterface
 {
-    /**
-     * @var ServiceLocatorInterface
-     */
-    private $serviceLocator;
 
     /**
-     * @param ServiceLocatorInterface $serviceLocator
+     * @var UserResourceService
      */
-    public function setServiceLocator(ServiceLocatorInterface $serviceLocator)
-    {
-        $this->serviceLocator = $serviceLocator;
-    }
-
-    /**
-     * @return ServiceLocator|ServiceLocatorInterface
-     */
-    public function getServiceLocator()
-    {
-        if(empty($this->serviceLocator)){
-            $this->serviceLocator = new ServiceLocator();
-        }
-        return $this->serviceLocator;
-    }
+    private $userResourceService;
 
     /**
      * Creates a role for this userId and assigns it all the permissions that the user has access to.
@@ -55,39 +37,50 @@ class ZendAcl extends Acl
      */
     public function initAclForUser($userId)
     {
-        $userRole = "user:$userId";
+        $userRole = $this->getUserRole($userId);
         $this->addRole(new GenericRole($userRole));
 
-        $resources = $this->getResourceService()->getResourcesByUserId($userId);
+        $resources = $this->getUserResourceService()->getResourceIdsByUserId($userId);
         foreach($resources as $resource){
-            $key = $resource->getResourceId();
-            $this->addResource(new GenericResource($key));
-            $this->allow($userRole, $key);
-        }
-
-        $permissions = $this->getPermissionsService()->getPermissionsByUserId($userId);
-        foreach($permissions as $permissionId){
-            $key = "permission:$permissionId";
-            $this->addResource(new GenericResource($key));
-            $this->allow($userRole, $key);
+            $this->addResource(new GenericResource($resource));
+            $this->allow($userRole, $resource);
         }
         return $this;
     }
 
     /**
-     * @return PermissionService
+     * @param $userId
+     * @return string
      */
-    protected function getPermissionsService()
+    public function getUserRole($userId)
     {
-        return $this->getServiceLocator()->get('Acl\Service\Permission');
+        return "user:$userId";
     }
 
     /**
-     * @return ResourceService
+     * @param $userId
+     * @param $resourceId
+     * @return bool
      */
-    protected function getResourceService()
+    public function userHasResource($userId, $resourceId)
     {
-        return $this->getServiceLocator()->get('Acl\Service\Resource');
+        return $this->isAllowed($this->getUserRole($userId), $resourceId);
     }
 
+    /**
+     * @return UserResourceService
+     */
+    public function getUserResourceService()
+    {
+        return $this->userResourceService;
+    }
+
+    /**
+     * @param UserResourceService $service
+     * @return mixed
+     */
+    public function setUserResourceService(UserResourceService $service)
+    {
+        $this->userResourceService = $service;
+    }
 }

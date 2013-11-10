@@ -10,8 +10,6 @@
 namespace Acl\Resource;
 
 use Acl\Entity\Resource as ResourceEntity;
-use Acl\Exception\InvalidPermission;
-use Acl\Resource\AbstractPermission;
 use Application\ServiceLocator;
 use Zend\Permissions\Acl\Resource\ResourceInterface;
 
@@ -19,33 +17,24 @@ abstract class AbstractResource implements ResourceInterface
 {
 
     /**
-     * @var ResourceEntity[]
+     * @var ResourceEntity
      */
-    private static $entities;
+    private $entity;
 
     /**
-     * @var AbstractPermission[]
+     * @var AbstractResource
      */
-    private $permissions;
-
-    protected function addPermission(AbstractPermission $permission)
-    {
-        $this->permissions[] = $permission;
-        return $this;
-    }
-
-    public function __construct()
-    {
-        $this->permissions = array();
-        $this->definePermissions();
-    }
+    private $parent;
 
     /**
-     * Return the integer id for this resource.  This should be a unique number across all resources you will
-     * use in the application.
-     * @return int
+     * @var AbstractResource[]
      */
-    public abstract function getId();
+    private $children;
+
+    /**
+     * @var int
+     */
+    private $hierarchicalLevel;
 
     /**
      * Return the name of this resource
@@ -58,19 +47,6 @@ abstract class AbstractResource implements ResourceInterface
      * @return string
      */
     public abstract function getDescription();
-
-    /**
-     *
-     */
-    public abstract function definePermissions();
-
-    /**
-     * @return AbstractPermission[]
-     */
-    public function getPermissions()
-    {
-        return $this->permissions;
-    }
 
     /**
      * @param \Acl\Entity\Resource $entity
@@ -87,16 +63,19 @@ abstract class AbstractResource implements ResourceInterface
      */
     public function getEntity()
     {
-        $id = $this->getId();
-        if(empty(self::$entities[$id])){
+        $id = $this->getResourceId();
+        if(empty($this->entity)){
             $entity = new ResourceEntity();
-            $entity->setId($this->getId());
+            $entity->setId($id);
             $entity->setName($this->getName());
             $entity->setDescription($this->getDescription());
-            $entity->setClass(get_called_class());
-            self::$entities[$id] = $entity;
+            $parent = $this->getParent();
+            if($parent){
+                $entity->setParent($parent->getResourceId());
+            }
+            $this->entity = $entity;
         }
-        return self::$entities[$id];
+        return $this->entity;
     }
 
     /**
@@ -105,15 +84,74 @@ abstract class AbstractResource implements ResourceInterface
      * @return string
      */
     public function getResourceId(){
-        return 'resource:'.$this->getId();
+        return str_replace('\\','-',get_called_class());
     }
 
     /**
      * Returns the parent resource
      * @return AbstractResource|null
      */
-    public function getParent(){
-        return null;
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * @param AbstractResource $resource
+     */
+    public function setParent(AbstractResource $resource)
+    {
+        $this->parent = $resource;
+    }
+
+    /**
+     * @param AbstractResource $resource
+     */
+    public function addChild(AbstractResource $resource)
+    {
+        $this->children[] = $resource;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasChildren()
+    {
+        return !empty($this->children);
+    }
+
+    /**
+     * @return AbstractResource[]
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @param $resources
+     */
+    public function setChildren($resources)
+    {
+        $this->children = $resources;
+    }
+
+    /**
+     * @param int $hierarchicalLevel
+     * @return AbstractResource
+     */
+    public function setHierarchicalLevel($hierarchicalLevel)
+    {
+        $this->hierarchicalLevel = $hierarchicalLevel;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHierarchicalLevel()
+    {
+        return $this->hierarchicalLevel;
     }
 
 }

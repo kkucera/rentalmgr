@@ -11,6 +11,7 @@ namespace Application\Session;
 
 use Application\CrudServiceAbstract;
 use Application\Logger\Factory as LoggerFactory;
+use Application\Session\Dao\Doctrine as SessionDao;
 use Application\Session\Entity\Session as SessionEntity;
 use DateTime;
 use Logger;
@@ -40,6 +41,14 @@ class Service extends CrudServiceAbstract
     protected function trace($msg)
     {
         $this->getLogger()->trace(__CLASS__.'::'.__FUNCTION__.' - '.$msg);
+    }
+
+    /**
+     * @return SessionDao
+     */
+    public function getDao()
+    {
+        return $this->getInstanceDao('Application\Session\Dao\Doctrine');
     }
 
     /**

@@ -9,7 +9,6 @@
 
 namespace Acl\Entity;
 
-use Acl\Entity\Permission;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
 
@@ -46,14 +45,14 @@ class Group {
     private $created;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Permission")
-     * @ORM\JoinTable(name="acl_group_permission",
+     * @ORM\ManyToMany(targetEntity="Resource")
+     * @ORM\JoinTable(name="acl_group_resource",
      *      joinColumns={@ORM\JoinColumn(name="groupId", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="permissionId", referencedColumnName="id")}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="resourceId", referencedColumnName="id")}
      *      )
-     * @var Permission[]
+     * @var Resource[]
      **/
-    private $permissions;
+    private $resources;
 
     public function __construct()
     {
@@ -133,22 +132,21 @@ class Group {
     }
 
     /**
-     * @param Permission[] $permissions
+     * @param \Acl\Entity\Resource[] $resources
      * @return Group
      */
-    public function setPermissions($permissions)
+    public function setResources($resources)
     {
-        $this->permissions = $permissions;
+        $this->resources = $resources;
         return $this;
     }
 
     /**
-     * @return Permission[]
+     * @return \Acl\Entity\Resource[]
      */
-    public function getPermissions()
+    public function getResources()
     {
-        return $this->permissions;
+        return $this->resources;
     }
-
 
 }

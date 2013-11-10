@@ -9,18 +9,40 @@
 namespace Acl;
 
 return array(
+
     'controllers' => array(
+        'factories' => array(
+            // console controllers
+            'Acl\Controller\Console\Resource' => 'Acl\Controller\Console\Factory\ResourceControllerFactory',
+            // service controllers
+            'acl-controller-service-resource' => 'Acl\Controller\Service\Factory\ResourceControllerFactory',
+            'acl-controller-service-user-resource' => 'Acl\Controller\Service\Factory\UserResourceControllerFactory',
+            // application controllers
+            'Acl\Controller\UserResource' => 'Acl\Controller\Factory\UserResourceControllerFactory'
+        ),
         'invokables' => array(
             'Acl\Controller\Acl' => 'Acl\Controller\AclController',
             'Acl\Controller\Group' => 'Acl\Controller\GroupController',
             'Acl\Controller\UserGroup' => 'Acl\Controller\UserGroupController',
-            'Acl\Controller\UserPermission' => 'Acl\Controller\UserPermissionController',
             // services
             'Acl\Controller\Service\Group' => 'Acl\Controller\Service\GroupController',
             'Acl\Controller\Service\UserGroup' => 'Acl\Controller\Service\UserGroupController',
-            'Acl\Controller\Service\UserPermission' => 'Acl\Controller\Service\UserPermissionController',
-            // console controllers
-            'Acl\Controller\Console\Resource' => 'Acl\Controller\Console\ResourceController'
+
+        ),
+        'initializers' => array(
+            'Acl\Initializer\RequireZendAcl'
+        ),
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Acl\Service\Resource' => 'Acl\Service\Factory\ResourceServiceFactory',
+            'Acl\Service\UserResource' => 'Acl\Service\Factory\UserResourceServiceFactory',
+            'Acl\Resource\Factory' => 'Acl\Resource\Factory\ResourceFactoryFactory',
+        ),
+        'invokables' => array(
+            'Acl\Service\UserGroup' => 'Acl\Service\UserGroup',
+            'Acl\Service\Group' => 'Acl\Service\Group',
+            'Acl\Service\ZendAcl' => 'Acl\Service\ZendAcl',
         ),
     ),
     'router' => array(
@@ -114,12 +136,15 @@ return array(
                             ),
                         ),
                     ),
-                    'user-permission' => array(
-                        'type' => 'literal',
+                    'user-resource' => array(
+                        'type' => 'segment',
                         'options' => array(
-                            'route'    => '/user-permission',
+                            'route'    => '/user-resource[/:id]',
+                            'constraints' => array(
+                                'id'     => '[0-9]+',
+                            ),
                             'defaults' => array(
-                                'controller' => 'Acl\Controller\UserPermission',
+                                'controller' => 'Acl\Controller\UserResource',
                                 'action'     => 'index',
                             ),
                         ),
@@ -130,11 +155,11 @@ return array(
                                 'options' => array(
                                     'route'    => '/:action[/:id]',
                                     'constraints' => array(
-                                        'action' => '[^service][a-zA-Z][a-zA-Z0-9_-]*',
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                         'id'     => '[0-9]+',
                                     ),
                                     'defaults' => array(
-                                        'controller' => 'Acl\Controller\UserPermission',
+                                        'controller' => 'Acl\Controller\UserResource',
                                     ),
                                 ),
                             ),
@@ -147,7 +172,33 @@ return array(
                                         'id'     => '[0-9]+',
                                     ),
                                     'defaults' => array(
-                                        'controller' => 'Acl\Controller\Service\UserPermission',
+                                        'controller' => 'acl-controller-service-user-resource',
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    'resource' => array(
+                        'type' => 'literal',
+                        'options' => array(
+                            'route'    => '/resource',
+                            'defaults' => array(
+                                'controller' => 'acl-controller-resource',
+                                'action'     => 'index',
+                            ),
+                        ),
+                        'may_terminate' => false,
+                        'child_routes' => array(
+                            'service' => array(
+                                'type'    => 'segment',
+                                'options' => array(
+                                    'route'    => '/service/:action[.:format][/:id]',
+                                    'constraints' => array(
+                                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                        'id'     => '[0-9]+',
+                                    ),
+                                    'defaults' => array(
+                                        'controller' => 'acl-controller-service-resource',
                                     ),
                                 ),
                             ),
@@ -157,6 +208,12 @@ return array(
             ),
 
         ),
+    ),
+
+    'view_helpers' => array(
+        'invokables' => array(
+            'resourceOptions' => 'Acl\View\Helper\ResourceOptions',
+        )
     ),
 
     'view_manager' => array(
@@ -202,11 +259,14 @@ return array(
 
     // acl resources
     'acl-resource' => array(
-        'Acl\Resource\Group' => array(
-            'Acl\Resource\Group\View',
-            'Acl\Resource\Group\Create'
+        'Acl\Resource\Acl' => array(
+            'Acl\Resource\Group' => array(
+                'Acl\Resource\Group\View',
+                'Acl\Resource\Group\Create',
+                'Acl\Resource\Group\Edit',
+                'Acl\Resource\Group\Delete',
+            ),
         ),
-        'Acl\Resource\Acl'
     ),
 
     'navigation' => array(
@@ -219,27 +279,22 @@ return array(
                 'label' => 'Acl',
                 'route' => 'acl',
                 'resource' => new Resource\ACL,
+                'order' => 100,
                 'pages' => array(
                     array(
                         'label' => 'Group',
-                        'route' => 'acl/group',
-                        'controller' => 'acl/group',
-                        'action'     => 'index',
+                        'uri' => '/acl/group',
                         'resource' => new Resource\Group,
                     ),
                     array(
                         'label' => 'User Group',
-                        'route' => 'acl/user-group',
-                        'controller' => 'acl/user-group',
-                        'action'     => 'index',
+                        'uri' => '/acl/user-group',
                         'resource' => new Resource\Group,
                     ),
                     array(
                         'label' => 'User Permission',
-                        'route' => 'acl/user-permission',
-                        'controller' => 'acl/user-permission',
-                        'action'     => 'index',
-                        'resource' => new Resource\Group\View,
+                        'uri' => '/acl/user-resource',
+                        'resource' => new Resource\ACL,
                     ),
                 ),
             ),

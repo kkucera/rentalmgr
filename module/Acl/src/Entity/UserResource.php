@@ -14,9 +14,9 @@ use DateTime;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="acl_user_permission", indexes={@ORM\index(name="userId", columns={"userId"} ) } )
+ * @ORM\Table(name="acl_user_resource", indexes={@ORM\index(name="userId", columns={"userId"} ) } )
  */
-class UserPermission {
+class UserResource {
 
     /**
      * @ORM\Id
@@ -33,11 +33,11 @@ class UserPermission {
     private $userId;
 
     /**
-     * @ORM\OneToOne(targetEntity="Permission")
-     * @ORM\JoinColumn(name="permissionId", referencedColumnName="id")
-     * @var Permission
+     * @ORM\OneToOne(targetEntity="Resource")
+     * @ORM\JoinColumn(name="resourceId", referencedColumnName="id")
+     * @var Resource
      */
-    private $permission;
+    private $resource;
 
     /**
      * @ORM\Column(type="datetime")
@@ -52,7 +52,7 @@ class UserPermission {
 
     /**
      * @param \DateTime $created
-     * @return UserPermission
+     * @return UserResource
      */
     public function setCreated($created)
     {
@@ -70,7 +70,7 @@ class UserPermission {
 
     /**
      * @param int $id
-     * @return UserPermission
+     * @return UserResource
      */
     public function setId($id)
     {
@@ -87,26 +87,26 @@ class UserPermission {
     }
 
     /**
-     * @param \Acl\Entity\Permission $permission
-     * @return UserPermission
+     * @param \Acl\Entity\Resource $resource
+     * @return UserResource
      */
-    public function setPermission($permission)
+    public function setResource($resource)
     {
-        $this->permission = $permission;
+        $this->resource = $resource;
         return $this;
     }
 
     /**
-     * @return \Acl\Entity\Permission
+     * @return \Acl\Entity\Resource
      */
-    public function getPermission()
+    public function getResource()
     {
-        return $this->permission;
+        return $this->resource;
     }
 
     /**
      * @param int $userId
-     * @return UserPermission
+     * @return UserResource
      */
     public function setUserId($userId)
     {

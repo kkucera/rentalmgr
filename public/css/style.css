@@ -52,14 +52,23 @@ div#logo span#block2{
     color:#599fcf;
 }
 
-div.cfm-menu-bar{
-    font-size:12px;
+div.navbar-header div#user-info{
+    color:#ffffff;
+    text-align:center;
+    margin-left:15px;
 }
 
-div.cfm-menu-bar .cfm-menu{
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    margin: 0 100px 0 100px;
+div.navbar-header div#user-info div{
+    display:block;
+    color:#ffffff;
+}
+
+div.resource-block {
+    margin-left:20px;
+}
+
+span.resource-user-group-list {
+    font-style: italic;
+    font-size: 12px;
+    color: #C3C3C3;
 }

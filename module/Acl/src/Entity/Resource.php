@@ -20,8 +20,8 @@ class Resource {
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @var int
+     * @ORM\Column(type="string", length=128)
+     * @var string
      */
     private $id;
 
@@ -38,26 +38,13 @@ class Resource {
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Permission", mappedBy="resourceId")
-     * @var Permission[]
-     */
-    private $permissions;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Resource")
-     * @ORM\JoinColumn(name="parentId", referencedColumnName="id")
-     * @var Resource
+     * @ORM\Column(type="string", length=128, nullable=true)
+     * @var string
      */
     private $parent;
 
     /**
-     * @ORM\Column(type="string", length=128)
-     * @var string
-     */
-    private $class;
-
-    /**
-     * @param mixed $description
+     * @param string $description
      * @return Resource
      */
     public function setDescription($description)
@@ -67,7 +54,7 @@ class Resource {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription()
     {
@@ -75,25 +62,7 @@ class Resource {
     }
 
     /**
-     * @param int $id
-     * @return Resource
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param mixed $name
+     * @param string $name
      * @return Resource
      */
     public function setName($name)
@@ -103,7 +72,7 @@ class Resource {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -111,25 +80,7 @@ class Resource {
     }
 
     /**
-     * @param \Acl\Entity\Permission[] $permissions
-     * @return Resource
-     */
-    public function setPermissions($permissions)
-    {
-        $this->permissions = $permissions;
-        return $this;
-    }
-
-    /**
-     * @return \Acl\Entity\Permission[]
-     */
-    public function getPermissions()
-    {
-        return $this->permissions;
-    }
-
-    /**
-     * @param Resource $parent
+     * @param string $parent
      * @return Resource
      */
     public function setParent($parent)
@@ -139,7 +90,7 @@ class Resource {
     }
 
     /**
-     * @return Resource
+     * @return string
      */
     public function getParent()
     {
@@ -147,21 +98,21 @@ class Resource {
     }
 
     /**
-     * @param string $class
+     * @param string $id
      * @return Resource
      */
-    public function setClass($class)
+    public function setId($id)
     {
-        $this->class = $class;
+        $this->id = $id;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getClass()
+    public function getId()
     {
-        return $this->class;
+        return $this->id;
     }
 
 }

@@ -9,17 +9,16 @@
 
 namespace Acl\Service;
 
-
 use Application\CrudServiceAbstract;
+use Acl\Dao\Doctrine\Group as GroupDao;
 
-class Group extends CrudServiceAbstract{
-
+class Group extends CrudServiceAbstract
+{
     /**
-     * Absolute class name of Dao to use for crud operations
-     * @return string
+     * @return GroupDao
      */
-    protected function getDaoClassName()
+    public function getDao()
     {
-        return 'Acl\Dao\Doctrine\Group';
+        return $this->getInstanceDao('Acl\Dao\Doctrine\Group');
     }
 }

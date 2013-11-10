@@ -1,0 +1,29 @@
+.base-inline-message {
+    border: 1px solid #D5EBDA;
+    background-color: #EEFFF2;
+    padding: 5px;
+    margin:2px 0;
+}
+
+.base-inline-message .base-inline-message-exit{
+    position: relative;
+    float:right;
+    margin-right:5px;
+    cursor: pointer;
+}
+
+
+.base-submit-button-container {
+    margin-top: 20px;
+}
+
+.base-submit-button-container div {
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.base-submit-busy-icon {
+    height:11px;
+    width:43px;
+    background-image: url('image/squares.gif');
+}

@@ -9,21 +9,11 @@
 
 namespace Acl\Resource\Group;
 
-use Acl\Resource\AbstractPermission;
+use Acl\Resource\AbstractResource;
 use Acl\Resource\Group;
 
-class Delete extends AbstractPermission
+class Delete extends AbstractResource
 {
-
-    /**
-     * Return the integer id for this resource.  This should be a unique number across all resources you will
-     * use in the application.
-     * @return int
-     */
-    public function getId()
-    {
-        return 13;
-    }
 
     /**
      * Return the name of this resource
@@ -43,11 +33,4 @@ class Delete extends AbstractPermission
         return 'Delete available access control groups';
     }
 
-    /**
-     * @return Group
-     */
-    public function getParentResource()
-    {
-        return new Group;
-    }
 }

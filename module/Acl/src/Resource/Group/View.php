@@ -9,22 +9,11 @@
 
 namespace Acl\Resource\Group;
 
-use Acl\Resource\AbstractPermission;
+use Acl\Resource\AbstractResource;
 use Acl\Resource\Group;
 
-class View extends AbstractPermission
+class View extends AbstractResource
 {
-
-    /**
-     * Return the integer id for this resource.  This should be a unique number across all resources you will
-     * use in the application.
-     * @return int
-     */
-    public function getId()
-    {
-        return 10;
-    }
-
     /**
      * Return the name of this resource
      * @return string
@@ -43,11 +32,4 @@ class View extends AbstractPermission
         return 'View available access control groups';
     }
 
-    /**
-     * @return Group
-     */
-    public function getParentResource()
-    {
-        return new Group;
-    }
 }

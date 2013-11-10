@@ -9,15 +9,17 @@
 
 namespace User\Controller;
 
-use Application\Controller\AbstractController;
-use Property\Entity\Property;
-use Property\Marshal\ArrayToProperty;
-use Property\Service;
+use Auth\Controller\AuthenticatedController;
 
-class UserController extends AbstractController
+class UserController extends AuthenticatedController
 {
 
     public function indexAction()
+    {
+
+    }
+
+    public function listAction()
     {
 
     }

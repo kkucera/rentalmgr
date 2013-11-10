@@ -12,6 +12,7 @@ namespace Auth\Service;
 use Application\CrudServiceAbstract;
 use Application\Logger\Factory as LoggerFactory;
 use Application\ServiceLocator;
+use Auth\Dao\Doctrine as AuthDao;
 use Auth\Entity\Authentication as AuthenticationEntity;
 use Auth\Exception\LoginFailed;
 use DateTime;
@@ -55,11 +56,11 @@ class Authentication extends CrudServiceAbstract
     }
 
     /**
-     * @return string
+     * @return AuthDao
      */
-    protected function getDaoClassName()
+    public function getDao()
     {
-        return 'Auth\Dao\Doctrine';
+        return $this->getInstanceDao('Auth\Dao\Doctrine');
     }
 
     /**

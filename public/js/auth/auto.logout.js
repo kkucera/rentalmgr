@@ -1,12 +1,10 @@
 /**
- * Created with JetBrains PhpStorm.
  * User: kevin
  * Date: 9/14/13
  * Time: 12:15 PM
- * To change this template use File | Settings | File Templates.
  */
 
-var timeOutSeconds = 300;
+var timeOutSeconds = 360;
 var warningSeconds = 10;
 var logoutUrl = '/logout';
 
