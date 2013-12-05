@@ -168,7 +168,8 @@ class Authentication extends CrudServiceAbstract
      */
     public function getMaxLifetime()
     {
-        return 360;
+        $config = $this->getServiceLocator()->get('Config');
+        return $config['session']['timeOut'];
     }
 
     /**

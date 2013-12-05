@@ -10,6 +10,8 @@
 namespace User\Dao;
 
 use Application\Dao\DoctrineCrud as DoctrineCrud;
+use Core\DataTable\SearchCriteria as DataTableSearchCriteria;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use User\Dto\SearchCriteria;
 use User\Entity\User as UserModel;
 
@@ -60,6 +62,35 @@ class Doctrine extends DoctrineCrud
 
         $query = $this->getEntityManager()->createQuery($dql);
         return $query->execute($params);
+    }
+
+    /**
+     * @param DataTableSearchCriteria $searchCriteria
+     * @return Paginator
+     */
+    public function getUserList(DataTableSearchCriteria $searchCriteria)
+    {
+
+        $params = array(
+            'searchName' => '%'.$searchCriteria->getSearchTerm().'%',
+            'searchEmail' => '%'.$searchCriteria->getSearchTerm().'%',
+        );
+
+        $dql = '
+            SELECT User FROM
+            '.$this->getEntityName().' as User
+            WHERE User.name LIKE :searchName
+               OR User.email LIKE :searchEmail
+        ';
+
+        $query = $this->getEntityManager()->createQuery($dql)
+            ->setFirstResult($searchCriteria->getStart())
+            ->setMaxResults($searchCriteria->getLimit())
+            ->setParameters($params);
+
+        $paginator = new Paginator($query, $fetchJoinCollection = false);
+
+        return $paginator;
     }
 
 }

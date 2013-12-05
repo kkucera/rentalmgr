@@ -1,0 +1,26 @@
+<?php
+/**
+ * @category Kevin Kucera
+ * @package rentalmgr
+ * @copyright Copyright (c) 2013 Kevin Kucera
+ * @user: kevin
+ * @date: 11/24/13
+ */
+$this->headScript()
+    ->appendFile($this->basePath() . '/js/organization/organization.edit.js');
+?>
+<h1>Edit Organization</h1>
+<div id="base-inline-message"></div>
+<form action='' method='POST'>
+    <table>
+        <tr><td><label for="name">Name</label></td><td><input name="name" id="name" type="text" maxlength="50" size="50" value="<?=$this->name;?>"/></td></tr>
+        <tr><td><label for="address1">Address</label></td><td><input name="address1" id="address1" type="text" maxlength="128" size="50" value="<?=$this->address1;?>" /></td></tr>
+        <tr><td><label for="address2">Address 2</label></td><td><input name="address2" id="address2" type="text" maxlength="128" size="50" value="<?=$this->address2;?>" /></td></tr>
+        <tr><td><label for="city">City</label></td><td><input name="city" id="city" type="text" maxlength="128" size="50" value="<?=$this->city;?>" /></td></tr>
+        <tr><td><label for="state">State</label></td><td><input name="state" id="state" type="text" maxlength="3" size="3" value="<?=$this->state;?>" /></td></tr>
+        <tr><td><label for="zip">Zip Code</label></td><td><input name="zip" id="zip" type="text" maxlength="9" size="9" value="<?=$this->zip;?>" /></td></tr>
+        <tr><td><label for="number">Phone</label></td><td><input name="number" id="number" type="text" maxlength="11" size="11" value="<?=$this->number;?>" /></td></tr>
+    </table>
+    <input type="hidden" name="id" value="<?=$this->id;?>" />
+    <div id="organization-submit" class="base-submit">Submit</div>
+</form>

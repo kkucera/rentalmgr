@@ -67,10 +67,15 @@ class User {
     }
 
     /**
-     * @return \DateTime
+     * Return the created date time object or a string formated as requested
+     * @param null $format
+     * @return DateTime|string
      */
-    public function getCreated()
+    public function getCreated($format = null)
     {
+        if($format){
+            return $this->created->format($format);
+        }
         return $this->created;
     }
 
@@ -121,10 +126,15 @@ class User {
     }
 
     /**
-     * @return \DateTime
+     * Return the modified date time object or a string formated as requested
+     * @param null $format
+     * @return DateTime|string
      */
-    public function getModified()
+    public function getModified($format = null)
     {
+        if($format){
+            return $this->modified->format($format);
+        }
         return $this->modified;
     }
 

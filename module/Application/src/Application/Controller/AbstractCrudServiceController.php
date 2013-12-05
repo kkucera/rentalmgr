@@ -11,6 +11,7 @@ namespace Application\Controller;
 
 use Application\CrudServiceAbstract;
 use Application\Exception\EntityNotFound;
+use DateTime;
 use InvalidArgumentException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\View\Model\JsonModel;
@@ -32,9 +33,10 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
     /**
      * @return EntityHydrator
      */
-    protected function getEntityHydrator()
+    protected function getEntityHydrator($entity = null)
     {
-        return new EntityHydrator($this->getEntity());
+        $entity = ($entity ? $entity : $this->getEntity());
+        return new EntityHydrator($entity);
     }
 
     public function indexAction()
@@ -63,7 +65,7 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
 
     public function createAction()
     {
-        $data = $_POST;
+        $data = $this->params()->fromPost();
 
         $data = $this->createPrepareData($data);
 
@@ -114,9 +116,9 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
 
     public function updateAction()
     {
-        $data = $_POST;
-
-        $id = (int) $this->params()->fromRoute('id', 0);
+        $data = $this->params()->fromPost();
+        $id = (int) $data['id'];
+        $id = $id ?: (int) $this->params()->fromRoute('id', 0);
         if(empty($id)){
             throw new InvalidArgumentException('Missing required parameter [id].');
         }
@@ -139,6 +141,22 @@ abstract class AbstractCrudServiceController extends AbstractServiceController
         $entities = $service->getList();
         $hydrator = $this->getEntityHydrator();
         return new JsonModel($hydrator->extractAll($entities));
+    }
+
+    /**
+     *
+     */
+    public function saveAction()
+    {
+        $data = $this->params()->fromPost();
+
+        $hydrator = $this->getEntityHydrator();
+        $entity = $hydrator->hydrate($data, $this->getEntity());
+
+        $service = $this->getEntityService();
+        $entity = $service->save($entity);
+
+        return new JsonModel($hydrator->extract($entity));
     }
 
 }

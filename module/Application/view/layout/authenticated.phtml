@@ -29,7 +29,8 @@
         ->prependFile($this->basePath() . '/js/jquery/jquery-ui-1.10.3.custom.js')
         ->prependFile($this->basePath() . '/js/jquery/jquery.min.js')
         ->prependScript(
-            'var basePath = "'.$this->serverUrl().'";'
+            'var basePath = "'.$this->serverUrl().'";
+             var autoLoggoutTimeOut = '.$this->autoLoggoutTimeOut.';'
         )
     ; ?>
 

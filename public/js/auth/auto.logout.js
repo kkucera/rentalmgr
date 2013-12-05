@@ -4,7 +4,7 @@
  * Time: 12:15 PM
  */
 
-var timeOutSeconds = 360;
+var timeOutSeconds = autoLoggoutTimeOut||900;
 var warningSeconds = 10;
 var logoutUrl = '/logout';
 

@@ -16,47 +16,71 @@ class SearchCriteria
     /**
      * @var string
      */
-    private $name;
+    private $searchTerm;
 
     /**
-     * @var string
+     * @var int
      */
-    private $email;
+    private $start;
 
     /**
-     * @param string $email
+     * @var int
+     */
+    private $limit;
+
+    /**
+     * @param int $limit
      * @return SearchCriteria
      */
-    public function setEmail($email)
+    public function setLimit($limit)
     {
-        $this->email = $email;
+        $this->limit = $limit;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+
+    /**
+     * @param string $searchTerm
+     * @return SearchCriteria
+     */
+    public function setSearchTerm($searchTerm)
+    {
+        $this->searchTerm = $searchTerm;
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getEmail()
+    public function getSearchTerm()
     {
-        return $this->email;
+        return $this->searchTerm;
     }
 
     /**
-     * @param string $name
+     * @param int $start
      * @return SearchCriteria
      */
-    public function setName($name)
+    public function setStart($start)
     {
-        $this->name = $name;
+        $this->start = $start;
         return $this;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getStart()
     {
-        return $this->name;
+        return $this->start;
     }
+
 
 }

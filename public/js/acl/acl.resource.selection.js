@@ -105,4 +105,6 @@ acl.resource.selection = {
     }
 
 };
-$(acl.resource.selection.requestResources());
+$( function(){
+    acl.resource.selection.requestResources();
+});

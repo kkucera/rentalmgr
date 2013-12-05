@@ -30,8 +30,11 @@ base.displayErrorResponse = function(response, message)
     base.errorMessage(message);
 };
 
-base.submitButton = function(config){
+base.confirm  = function(message){
+  return confirm(message);
+};
 
+base.submitButton = function(config){
     var button = null;
     var url = null;
     var form = null;
@@ -124,7 +127,6 @@ base.inlineMessage = function(config){
     var init = function(config){
         var message = null;
         var container = null;
-        console.log(typeof(config));
         if(typeof(config) == 'string'){
             message = config;
             container = getContainer();
@@ -133,7 +135,6 @@ base.inlineMessage = function(config){
             container = getContainer(config.container);
         }else{
             console.error('Error: improper use of base.inlineMessage must call with string message or config object');
-            console.log(config);
         }
         buildMessageDiv(message, container);
     };

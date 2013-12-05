@@ -10,6 +10,7 @@
 namespace User\Controller\Service;
 
 use Application\Controller\AbstractCrudServiceController;
+use Core\DataTable\SearchCriteria as DataTableSearchCriteria;
 use User\Dto\SearchCriteria;
 use User\Entity\User;
 use User\Service as UserService;
@@ -54,6 +55,32 @@ class UserController extends AbstractCrudServiceController
         $hydrator = $this->getEntityHydrator();
         return new JsonModel(array(
             'users'=>$hydrator->extractAll($results)
+        ));
+    }
+
+    public function dataTableAction()
+    {
+        $params = $this->params()->fromPost();
+
+        $searchCriteria = new DataTableSearchCriteria($params);
+        $results = $this->getEntityService()->getUserList($searchCriteria);
+
+        $data = array();
+        foreach($results as $user){
+            $data[] = array(
+                $user->getId(),
+                $user->getName(),
+                $user->getEmail(),
+                $user->getCreated('Y-m-d H:i'),
+                $user->getModified('Y-m-d H:i')
+            );
+        }
+
+        return new JsonModel(array(
+            'sEcho' => $params['sEcho'],
+            'iTotalRecords' => count($data),
+            'iTotalDisplayRecords' => count($results),
+            'aaData' => $data
         ));
     }
 }

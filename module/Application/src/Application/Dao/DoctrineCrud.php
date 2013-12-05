@@ -9,6 +9,7 @@
 namespace Application\Dao;
 
 use Application\Logger\Factory as LoggerFactory;
+use DateTime;
 use Logger;
 
 abstract class DoctrineCrud extends Doctrine
@@ -39,6 +40,9 @@ abstract class DoctrineCrud extends Doctrine
         $this->trace('save: '.get_class($model));
         if ($model != null)
         {
+            if(method_exists($model,'setModified')){
+                $model->setModified(new DateTime());
+            }
             $this->getEntityManager()->persist($model);
         }
 

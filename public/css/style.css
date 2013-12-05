@@ -72,3 +72,24 @@ span.resource-user-group-list {
     font-size: 12px;
     color: #C3C3C3;
 }
+
+
+/* Icons */
+
+div.delete-icon {
+    cursor: pointer;
+    display: inline-block;
+    background-image: url('../img/trash2.png');
+    width:16px;
+    height:16px;
+    margin-right:4px;
+}
+
+div.edit-icon {
+    cursor: pointer;
+    display: inline-block;
+    background-image: url('../img/edit.png');
+    width:16px;
+    height:16px;
+    margin-right:4px;
+}

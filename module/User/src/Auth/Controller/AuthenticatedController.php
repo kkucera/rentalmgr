@@ -31,6 +31,14 @@ class AuthenticatedController extends AbstractController implements RequiresZend
     private $zendAcl;
 
     /**
+     * @return \Auth\Service\Authentication
+     */
+    protected function getAuthService()
+    {
+        return $this->getServiceLocator()->get('Auth\Service\Authentication');
+    }
+
+    /**
      * Checks if the user has the required resource
      * @param $resourceName
      * @throws \Acl\Exception\PermissionDenied
@@ -70,6 +78,15 @@ class AuthenticatedController extends AbstractController implements RequiresZend
     }
 
     /**
+     * @return int
+     */
+    protected function getSessionTimeOut()
+    {
+        $authService = $this->getAuthService();
+        return $authService->getMaxLifetime();
+    }
+
+    /**
      * @param MvcEvent $event
      * @return mixed|\Zend\Http\Response
      */
@@ -81,6 +98,7 @@ class AuthenticatedController extends AbstractController implements RequiresZend
         $this->layout('layout/authenticated');
         $this->layout()->setVariable('userName', $user->getName());
         $this->layout()->setVariable('userId', $user->getId());
+        $this->layout()->setVariable('autoLoggoutTimeOut', $this->getSessionTimeOut());
         return parent::onDispatch($event);
     }
 

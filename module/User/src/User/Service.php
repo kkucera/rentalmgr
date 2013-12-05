@@ -11,6 +11,7 @@ namespace User;
 
 use Application\ServiceLocator;
 use Application\CrudServiceAbstract;
+use Core\DataTable\SearchCriteria as DataTableSearchCriteria;
 use User\Entity\User as UserModel;
 use User\Dto\SearchCriteria;
 use User\Dao\Doctrine as UserDao;
@@ -51,5 +52,14 @@ class Service extends CrudServiceAbstract
     public function searchUsers(SearchCriteria $searchCriteria)
     {
         return $this->getDao()->search($searchCriteria);
+    }
+
+    /**
+     * @param DataTableSearchCriteria $searchCriteria
+     * @return null|Entity\User[]
+     */
+    public function getUserList(DataTableSearchCriteria $searchCriteria)
+    {
+        return $this->getDao()->getUserList($searchCriteria);
     }
 }

@@ -7,6 +7,7 @@ return array(
         'Application',
         'Acl',
         'User',
+        'Organization',
         'DoctrineModule',
         'DoctrineORMModule',
         'Property',

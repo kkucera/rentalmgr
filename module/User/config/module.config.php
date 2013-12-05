@@ -114,6 +114,10 @@ return array(
         ),
     ),
 
+    'session' => array(
+        'timeOut' => 900
+    ),
+
     // Doctrine config
     'doctrine' => array(
         'driver' => array(
