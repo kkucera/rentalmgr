@@ -32,4 +32,12 @@ class Manage extends AbstractResource
         return 'Ability to manage organizations';
     }
 
+    /**
+     * Override the type to be a system level acl
+     * @return int
+     */
+    public function getType()
+    {
+        return self::TYPE_SYSTEM;
+    }
 }

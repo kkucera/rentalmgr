@@ -33,7 +33,7 @@ class UserResource {
     private $userId;
 
     /**
-     * @ORM\OneToOne(targetEntity="Resource")
+     * @ORM\ManyToOne(targetEntity="Resource")
      * @ORM\JoinColumn(name="resourceId", referencedColumnName="id")
      * @var Resource
      */

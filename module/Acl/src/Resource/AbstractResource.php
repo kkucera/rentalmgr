@@ -15,6 +15,10 @@ use Zend\Permissions\Acl\Resource\ResourceInterface;
 
 abstract class AbstractResource implements ResourceInterface
 {
+    // resources that are for system admins only not end users to assign
+    const TYPE_SYSTEM = 1;
+    // resources that are for end users to assign as long as they have the Acl manager role
+    const TYPE_USER = 2;
 
     /**
      * @var ResourceEntity
@@ -49,6 +53,17 @@ abstract class AbstractResource implements ResourceInterface
     public abstract function getDescription();
 
     /**
+     * Return the resource type.  By default a resource is an end user resource.
+     * Over ride this to return TYPE_SYSTEM if this is a system ACL resource that should only be accessed by
+     * system admins.
+     * @return int
+     */
+    public function getType()
+    {
+        return self::TYPE_USER;
+    }
+
+    /**
      * @param \Acl\Entity\Resource $entity
      * @return AbstractResource
      */
@@ -69,6 +84,7 @@ abstract class AbstractResource implements ResourceInterface
             $entity->setId($id);
             $entity->setName($this->getName());
             $entity->setDescription($this->getDescription());
+            $entity->setType($this->getType());
             $parent = $this->getParent();
             if($parent){
                 $entity->setParent($parent->getResourceId());

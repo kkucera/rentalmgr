@@ -60,12 +60,12 @@ class Factory
     }
 
     /**
-     * @param $resourceName
+     * @param $resourceClassName
      * @param AbstractResource $parent
      * @param $level
      * @return AbstractResource
-     * @throws InvalidResourceRelationship
-     * @throws InvalidResourceName
+     * @throws \Acl\Exception\InvalidResourceRelationship
+     * @throws \Acl\Exception\InvalidResourceName
      */
     protected function initializeResource($resourceClassName, $parent=null, $level)
     {
@@ -84,7 +84,7 @@ class Factory
             throw new InvalidResourceRelationship('Resource: '.$resourceId.' is part of multiple resource heirarchies.  This is currently not supported.');
         }
 
-        $resource->getHierarchicalLevel($level);
+        $resource->setHierarchicalLevel($level);
         $this->resourceNames[] = $resourceId;
 
         if($parent){

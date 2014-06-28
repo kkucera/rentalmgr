@@ -44,6 +44,12 @@ class Resource {
     private $parent;
 
     /**
+     * @ORM\Column(type="integer")
+     * @var int
+     */
+    private $type;
+
+    /**
      * @param string $description
      * @return Resource
      */
@@ -114,5 +120,25 @@ class Resource {
     {
         return $this->id;
     }
+
+    /**
+     * @param int $type
+     * @return Resource
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+
 
 }

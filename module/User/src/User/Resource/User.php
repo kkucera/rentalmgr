@@ -29,7 +29,7 @@ class User extends AbstractResource
      */
     public function getDescription()
     {
-        return 'Ability to manager application users';
+        return 'Ability to manage application users';
     }
 
 }
