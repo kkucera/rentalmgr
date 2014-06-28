@@ -35,12 +35,14 @@ Create the database through MySQL interface then continue.
 Database - The database interface is through Doctrine.  The following commands can be run from the project base
 directory to initialize the database.
 
-$ ./vendor/bin/doctrine-module orm:schema-tool:drop
-$ ./vendor/bin/doctrine-module orm:schema-tool:create
+    $ ./vendor/bin/doctrine-module orm:schema-tool:drop
+    $ ./vendor/bin/doctrine-module orm:schema-tool:create
 
-If you just want to update the schema run this
-$ ./vendor/bin/doctrine-module orm:schema-tool:update --force
+If you just want to update the schema run this:
+
+    $ ./vendor/bin/doctrine-module orm:schema-tool:update --force
 
 
-Initialize the resources
-php public/index.php acl register resources
+Initialize the ACL resources:
+
+    php public/index.php acl register resources
